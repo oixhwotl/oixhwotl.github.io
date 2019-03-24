@@ -24,85 +24,14 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../lib/site/ico/apple-touch-icon-114-precomposed.png"/>
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../lib/site/ico/apple-touch-icon-72-precomposed.png"/>
         <link rel="apple-touch-icon-precomposed" href="../lib/site/ico/apple-touch-icon-57-precomposed.png"/>
-
-
-        <!-- Javascript -->
-        <script src="../lib/jquery/jquery-3.3.1.js"></script>
-		<script src="../lib/popper/popper.min.js"></script>
-		<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
-        <script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
-        <script src="../lib/wow/js/wow.min.js"></script>
-        <script src="../lib/retina/retina.min.js"></script>
-		<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
-		<script src="../lib/knockout/knockout-3.5.0.js"></script>
-		<script src="../lib/site/js/scripts.js"></script>
-		<script src="gdf_data.js"></script>
-
-		<script type="text/Javascript">
-			//console.log(gdfprice);
-			
-			/* Models */
-			function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
-				var self = {};
-				self.year = ko.observable(year);
-				self.minprice = ko.observable(parseFloat(minprice).toFixed(4));
-				self.maxprice = ko.observable(parseFloat(maxprice).toFixed(4));
-				self.avgprice = ko.observable(parseFloat(avgprice).toFixed(4));
-				self.wgtprice = ko.observable(parseFloat(wgtprice).toFixed(4));
-				return self;
-			}
-
-			function MedicinePrice(name, count, yprices) {
-				var self = {};
-				self.name = ko.observable(name);
-				self.rowspancount = ko.observable(count + 1);
-				self.yprices = ko.observableArray(yprices);
-				return self;
-			}
-
-			function loadMedicinePrice(gdfpricelist) {
-				var mplist = [];
-				for (let mprice of gdfprice) {
-					//console.log(mprice['name']);
-					var plist = [];
-					for (let p of mprice['prices']) {
-						//console.log(p);
-						plist.push(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
-						//console.log(plist);
-					}
-					//console.log(plist.length);
-					mplist.push(new MedicinePrice(mprice['name'], mprice['count'], plist));
-					//console.log(mplist.length);
-				}
-				return mplist;
-			}
-
-			/* View Model */
-			function ViewModel1() {
-				var self = this;
-				self.nameQuery = ko.observable("");
-				self.mpricedata = loadMedicinePrice(gdfprice);
-				self.mprices = ko.observableArray(self.mpricedata);
-				//console.log(mplist.length);
-				//console.log(self.mprices().length);
-			};
-
-			$(document).ready(function() {
-				var vm1 = new ViewModel1();
-
-				ko.applyBindings(vm1);
-				console.log("ready called");
-			});
-		</script>
     </head>
 
     <body>
-
 		<div class="container">
 			<div class="row">
 				<h2>Regimen cost calculator</h2>
 			</div>
-			<div class="row">
+			<div class="row d-print-none">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active" data-toggle="tab" role="tab" href="#home" >Home</a>
@@ -121,8 +50,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="row">
-				<div class="col wow fadeIn section-description"></div>
+			<div class="row mb-2">
 			</div>
 		</div>
 		
@@ -130,19 +58,65 @@
 			<div id="home" class="tab-pane container fade show active" role="tabpanel" >
 				<div class="d-flex">
 					<h3>Overview</h3>
-					<button class="ml-5 btn btn-outline-dark btn-sm d-print-none" type="button" data-toggle="collapse" data-target="#overviewSetting" aria-expanded="false" aria-controls="collapseExample">
-					Settings
+					<button class="ml-5 btn btn-outline-dark btn-sm d-print-none" type="button" 
+						data-toggle="collapse" data-target="#overviewSetting" 
+						aria-expanded="false" aria-controls="collapseExample">
+						Settings
 				  </button>
 				</div>
 				<div class="row d-print-none">
 					<div class="collapse" id="overviewSetting">
-						<div class="card card-body">
-							Show regimen list, years for price and price mode
+						<div class="card card-body form-group">
+							<p>Please configure below table by selecting regimens, years for prices and price mode.</p>
+							<div class="col-sm">
+								<table class="table table-bordered table-hover">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">Guidline</th>
+											<th scope="col">Name</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>2017</td>
+											<td>
+												<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+													Adult Drug-Susceptible TB
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-sm">
+								One of three columns
+							</div>
+							<div class="col-sm">
+								One of three columns
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					Show table of regimens 
+					Show table of regimens
+					<table class="table table-bordered table-hover">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Guidline<br/>Year</th>
+								<th scope="col">Name</th>
+								<th scope="col">Composition</th>
+								<th scope="col">Weight band (kg)</th>
+								<th scope="col">Price USD<br/>2017</th>
+								<th scope="col">Difference %</th>
+								<th scope="col">Price USD<br/>2018</th>
+								<th scope="col">Difference %</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 
@@ -221,6 +195,75 @@
 				</table>
 			</div>
 		</div>
-    </body>
 
+
+        <!-- Javascript -->
+        <script src="../lib/jquery/jquery-3.3.1.js"></script>
+		<script src="../lib/popper/popper.min.js"></script>
+		<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
+        <script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
+        <script src="../lib/wow/js/wow.min.js"></script>
+        <script src="../lib/retina/retina.min.js"></script>
+		<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
+		<script src="../lib/knockout/knockout-3.5.0.js"></script>
+		<script src="../lib/site/js/scripts.js"></script>
+		<script src="gdf_data.js"></script>
+
+		<script type="text/Javascript">
+			//console.log(gdfprice);
+			
+			/* Models */
+			function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
+				var self = {};
+				self.year = ko.observable(year);
+				self.minprice = ko.observable(parseFloat(minprice).toFixed(4));
+				self.maxprice = ko.observable(parseFloat(maxprice).toFixed(4));
+				self.avgprice = ko.observable(parseFloat(avgprice).toFixed(4));
+				self.wgtprice = ko.observable(parseFloat(wgtprice).toFixed(4));
+				return self;
+			}
+
+			function MedicinePrice(name, count, yprices) {
+				var self = {};
+				self.name = ko.observable(name);
+				self.rowspancount = ko.observable(count + 1);
+				self.yprices = ko.observableArray(yprices);
+				return self;
+			}
+
+			function loadMedicinePrice(gdfpricelist) {
+				var mplist = [];
+				for (let mprice of gdfprice) {
+					//console.log(mprice['name']);
+					var plist = [];
+					for (let p of mprice['prices']) {
+						//console.log(p);
+						plist.push(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
+						//console.log(plist);
+					}
+					//console.log(plist.length);
+					mplist.push(new MedicinePrice(mprice['name'], mprice['count'], plist));
+					//console.log(mplist.length);
+				}
+				return mplist;
+			}
+
+			/* View Model */
+			function ViewModel1() {
+				var self = this;
+				self.nameQuery = ko.observable("");
+				self.mpricedata = loadMedicinePrice(gdfprice);
+				self.mprices = ko.observableArray(self.mpricedata);
+				//console.log(mplist.length);
+				//console.log(self.mprices().length);
+			};
+
+			$(document).ready(function() {
+				var vm1 = new ViewModel1();
+
+				ko.applyBindings(vm1);
+				console.log("ready called");
+			});
+		</script>
+    </body>
 </html>
