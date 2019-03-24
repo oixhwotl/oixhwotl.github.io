@@ -57,40 +57,142 @@
 			</div>
 		</div>
 		
-		<div class="tab-content" id="myTabContent">
+		<div class="tab-content container" id="myTabContent">
 			<div id="home" class="tab-pane container fade show active" role="tabpanel" >
-				<h3>Home</h3>
-				<p>content of the Home</p>
+				<h3>Overview</h3>
+				<p><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#overviewSetting" aria-expanded="false" aria-controls="collapseExample">
+					Settings
+				  </button></p>
+				<div class="row">
+					<div class="collapse" id="overviewSetting">
+						<div class="card card-body">
+							Show regimen list, years for price and price mode
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					Show table of regimens 
+				</div>
 			</div>
+
+
+
+
+
 			<div id="regimenCost" class="tab-pane container fade" role="tabpanel" >
 				<h3>Regimen Cost in Detail</h3>
 				<p>show a regimen in detail</p>
 			</div>
+
+
+
+
+
 			<div id="regimenEditor" class="tab-pane container fade" role="tabpanel" >
 				<h3>Regimen Editor</h3>
 				<p>allow user to edit regimen</p>
 			</div>
+
+
+
+
+
 			<div id="medicineGuidance" class="tab-pane container fade" role="tabpanel" >
 				<h3>Medicine and Dosage from Guidance</h3>
 				<p>Show medicine, strength and dosage per guidance</p>
 			</div>
+
+
+
+
+
 			<div id="medicinePrice" class="tab-pane container fade" role="tabpanel" >
 				<h3>Medicine Price</h3>
-				<p>Just show medicines and prices</p>
+				<p>Showing the list of generic name, strength, and prices over years</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Medicine</th>
+							<th>Year</th>
+							<th>Low Price</th>
+							<th>High Price</th>
+							<th>Average Price</th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: mprices">
+						<tr>
+							<td data-bind="text: name, attr:{rowspan: rowSpan}" ></td>
+							<tb class="hidden"></tb>
+							<tb class="hidden"></tb>
+							<tb class="hidden"></tb>
+							<tb class="hidden"></tb>
+						</tr>
+						<!-- ko foreach: yprices -->
+						<tr>
+							<td data-bind="text: year"></td>
+							<td data-bind="text: minprice"></td>
+							<td data-bind="text: maxprice"></td>
+							<td data-bind="text: avgprice"></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 
 
         <!-- Javascript -->
-        <script src="../lib/jquery/jquery-3.3.1.min.js"></script>
+        <script src="../lib/jquery/jquery-3.3.1.js"></script>
 		<script src="../lib/popper/popper.min.js"></script>
 		<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
         <script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
         <script src="../lib/wow/js/wow.min.js"></script>
         <script src="../lib/retina/retina.min.js"></script>
-        <script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
-        <script src="../lib/site/js/scripts.js"></script>
+		<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
+		<script src="../lib/knockout/knockout-3.5.0.js"></script>
+		<script src="../lib/site/js/scripts.js"></script>
+		<script src="price.js"></script>
+		<script src="gname.js"></script>
+		<script type="text/Javascript">
+			//console.log(gdfprice);
+			
+			/* Models */
+			function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
+				this.year = year;
+				this.minprice = parseFloat(minprice).toFixed(4);
+				this.maxprice = parseFloat(maxprice).toFixed(4);
+				this.avgprice = parseFloat(avgprice).toFixed(4);
+				this.wgtprice = parseFloat(wgtprice).toFixed(4);
+			}
 
+			function MedicinePrice(name, count, yprices) {
+				this.name = name;
+				this.rowSpan = count + 1;
+				this.yprices = yprices;
+			}
+
+			/* View Model */
+			function ViewModel1() {
+				var self = this;
+				self.mprices = ko.observableArray([]);
+				self.init = function() {
+					var mplist = [];
+					for (let mprice of gdfprice) {
+						var plist = [];
+						for (let p of mprice['prices']) {
+							plist.concat(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgh']));
+						}
+						mplist.concat(new MedicinePrice(mprice['name'], mprice['count'], plist));
+					}
+					self.mprices(mplist);
+				};
+			};
+
+			$(document).ready(function() {
+				var vm1 = new ViewModel1();
+				vm1.init();
+				ko.applyBindings(vm1);
+			});
+		</script>
     </body>
 
 </html>

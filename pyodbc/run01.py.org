@@ -1,4 +1,4 @@
-
+import pyodbc
 import sys
 import pandas as pd
 import json
@@ -7,11 +7,9 @@ import math
 odbc_conn_str = 'DSN=SQLServer;UID=sa;PWD=manager'
 price_csv_file = 'price.csv'
 price_json_file = 'price.json'
-price_js_file = 'price.js'
 wprice_csv_file = 'pricew.csv'
 wprice_json_file = 'pricew.json'
 gname_json_file = 'gname.json'
-gname_js_file = 'gname.js'
 
 sql_select0 = """
 with
@@ -198,7 +196,6 @@ def table_to_csv(odbc_conn, sql_select_stmt, file_path):
 	
 def conn_and_save():
 	try:
-		import pyodbc
 		conn = pyodbc.connect(odbc_conn_str)
 		cursor = conn.cursor()
 		table_to_csv(conn, sql_select, price_csv_file)
@@ -228,38 +225,21 @@ mod = ['min', 'max', 'avg', 'wgt']
 # build genericname and sid
 gnames = df[csvheader[1]].unique()
 
-price = []
-prod = []
+price = {}
+prod = {}
 
 for gname in gnames:
+	price1 = {}
 	gdata = df[df.Generic == gname]
 	
 	pids1 = gdata[csvheader[14]].unique()
 	pids = pids1.astype(int).tolist()
 	pnames = gdata[csvheader[0]].unique().tolist()
-
-	prod1 = {}
-	prod1['name'] = gname
-	prod2 = []
-	prod2count = 0
-	for ind, pid in enumerate(pids):
-		prod3 = {}
-		prod3['pid'] = pid
-		prod3['pcode'] = pnames[ind]
-		prod2.append(prod3)
-		prod2count += 1
-		
-	prod1['prod'] = prod2
-	prod1['count'] = prod2count
-	prod.append(prod1)
+	prod[gname] = {'id':pids, 'name':pnames }
 
 	gdataw = dfw[dfw[csvheader0[1]].isin(pids)]
-	#print(gdataw)
+	print(gdataw)
 	
-	price1 = {}
-	price1['name'] = gname
-	price2 = []
-	price2count = 0
 	for ind, yyear in enumerate(yyears1):
 		gy = gdata[gdata[yyear] == 1]
 		
@@ -279,27 +259,13 @@ for gname in gnames:
 				wgh = min
 			elif wgh > max:
 				wgh = max
-			#price1[years1[ind]] = { mod[0]:min, mod[1]:max, mod[2]:mid, mod[3]:wgh }
-			price3 = {}
-			price3['year'] = years1[ind]
-			price3[mod[0]] = min
-			price3[mod[1]] = max
-			price3[mod[2]] = mid
-			price3[mod[3]] = wgh
-			price2.append(price3)
-			price2count += 1
+			price1[years1[ind]] = { mod[0]:min, mod[1]:max, mod[2]:mid, mod[3]:wgh }
 
-	price1['prices'] = price2
-	price1['count'] = price2count
-	price.append(price1)
+	price[gname] = price1
 
 
-with open(price_js_file, 'wt') as fp:
-	fp.write("var gdfprice = ")
+with open(price_json_file, 'wt') as fp:
 	json.dump(price, fp)
-	fp.write(";")
 	
-with open(gname_js_file, 'wt') as fp:
-	fp.write("var gname = ")
+with open(gname_json_file, 'wt') as fp:
 	json.dump(prod, fp)
-	fp.write(";")
