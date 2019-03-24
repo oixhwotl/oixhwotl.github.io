@@ -1,215 +1,319 @@
-<!doctype html/>
+<!doctype html />
 <html lang="en">
 
-    <head>
+<head>
 
-		<!-- Required meta tags -->
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        
-        <title>GDF Regimen Cost Calculator</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300"/>
-		<link rel="stylesheet" href="../lib/bootstrap-4.3/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="../lib/fontawesome-5.7/css/all.css"/>
-        <link rel="stylesheet" href="../lib/wow/css/animate.css"/>
-        <!-- <link rel="stylesheet" href="../lib/site/css/style.css"/> -->
-        <link rel="stylesheet" href="../lib/site/css/media-queries.css"/>
+	<title>GDF Regimen Cost Calculator</title>
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="../lib/site/ico/favicon.png"/>
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../lib/site/ico/apple-touch-icon-144-precomposed.png"/>
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../lib/site/ico/apple-touch-icon-114-precomposed.png"/>
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../lib/site/ico/apple-touch-icon-72-precomposed.png"/>
-        <link rel="apple-touch-icon-precomposed" href="../lib/site/ico/apple-touch-icon-57-precomposed.png"/>
-    </head>
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300" />
+	<link rel="stylesheet" href="../lib/bootstrap-4.3/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../lib/fontawesome-5.7/css/all.css" />
+	<link rel="stylesheet" href="../lib/wow/css/animate.css" />
+	<!-- <link rel="stylesheet" href="../lib/site/css/style.css"/> -->
+	<link rel="stylesheet" href="../lib/site/css/media-queries.css" />
 
-    <body>
-		<div class="container">
-			<div class="row">
-				<h2>Regimen cost calculator</h2>
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href="../lib/site/ico/favicon.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144"
+		href="../lib/site/ico/apple-touch-icon-144-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114"
+		href="../lib/site/ico/apple-touch-icon-114-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../lib/site/ico/apple-touch-icon-72-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" href="../lib/site/ico/apple-touch-icon-57-precomposed.png" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<h2>Regimen cost calculator</h2>
+		</div>
+		<div class="row d-print-none">
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" role="tab" href="#home">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" role="tab" href="#regimenCost">Regimen Cost</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" role="tab" href="#regimenEditor">Regimen Editor</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" role="tab" href="#medicineGuidance">Medicines in Guidance</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" role="tab" href="#medicinePrice">Medicine Price</a>
+				</li>
+			</ul>
+		</div>
+		<div class="row mb-2">
+		</div>
+	</div>
+
+	<div class="tab-content container" id="myTabContent">
+		<div id="home" class="tab-pane container fade show active" role="tabpanel">
+			<div class="d-flex">
+				<h3>Overview</h3>
+				<button class="ml-5 btn btn-outline-dark btn-sm d-print-none" type="button" data-toggle="collapse"
+					data-target="#overviewSetting" aria-expanded="false" aria-controls="collapseExample">
+					Settings
+				</button>
 			</div>
 			<div class="row d-print-none">
-				<ul class="nav nav-tabs" id="myTab" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab" role="tab" href="#home" >Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" role="tab" href="#regimenCost" >Regimen Cost</a>
-					</li>
-					<li class="nav-item"> 
-						<a class="nav-link" data-toggle="tab" role="tab" href="#regimenEditor"  >Regimen Editor</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" role="tab" href="#medicineGuidance" >Medicines in Guidance</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" role="tab" href="#medicinePrice" >Medicine Price</a>
-					</li>
-				</ul>
-			</div>
-			<div class="row mb-2">
-			</div>
-		</div>
-		
-		<div class="tab-content container" id="myTabContent">
-			<div id="home" class="tab-pane container fade show active" role="tabpanel" >
-				<div class="d-flex">
-					<h3>Overview</h3>
-					<button class="ml-5 btn btn-outline-dark btn-sm d-print-none" type="button" 
-						data-toggle="collapse" data-target="#overviewSetting" 
-						aria-expanded="false" aria-controls="collapseExample">
-						Settings
-				  </button>
-				</div>
-				<div class="row d-print-none">
-					<div class="collapse" id="overviewSetting">
-						<div class="card card-body form-group">
-							<p>Please configure below table by selecting regimens, years for prices and price mode.</p>
+				<div class="collapse" id="overviewSetting">
+					<div class="card card-body form-group small">
+						<p>Please configure below table by selecting regimens, years for prices and price mode.</p>
+						<div class="row">
 							<div class="col-sm">
-								<table class="table table-bordered table-hover">
-									<thead class="thead-dark">
-										<tr>
-											<th scope="col">Guidline</th>
-											<th scope="col">Name</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>2017</td>
-											<td>
-												<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-													Adult Drug-Susceptible TB
-												</button>
-											</td>
-										</tr>
-									</tbody>
-								</table>
+								<P>Select regimens to compare</P>
+								<div class="form-check">	
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>Adult drug-susceptible TB
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>Paediatric drug-susceptible TB
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>MDR-TB Conventional
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>STR MDR-TB
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>New LTR Mfx 6 Lnz
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>Modified STR
+									</label>
+								</div>
 							</div>
 							<div class="col-sm">
-								One of three columns
+								<P>Select years for prices</P>
+								<div class="form-check">	
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>2019
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>2018
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>2017
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>2016
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>2015
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" value=""/>2014
+									</label>
+								</div>
 							</div>
 							<div class="col-sm">
-								One of three columns
+								<P>Select price mode:</P>
+								<div class="form-check">	
+									<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="optradio"/>High
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="optradio"/>Low
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="optradio"/>Weighted
+									</label>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					Show table of regimens
-					<table class="table table-bordered table-hover">
-						<thead class="thead-dark">
-							<tr>
-								<th scope="col">Guidline<br/>Year</th>
-								<th scope="col">Name</th>
-								<th scope="col">Composition</th>
-								<th scope="col">Weight band (kg)</th>
-								<th scope="col">Price USD<br/>2017</th>
-								<th scope="col">Difference %</th>
-								<th scope="col">Price USD<br/>2018</th>
-								<th scope="col">Difference %</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-							</tr>
-						</tbody>
-					</table>
-				</div>
 			</div>
-
-
-
-
-
-			<div id="regimenCost" class="tab-pane container fade" role="tabpanel" >
-				<h3>Regimen Cost in Detail</h3>
-				<p>show a regimen in detail</p>
-			</div>
-
-
-
-
-
-			<div id="regimenEditor" class="tab-pane container fade" role="tabpanel" >
-				<h3>Regimen Editor</h3>
-				<p>allow user to edit regimen</p>
-			</div>
-
-
-
-
-
-			<div id="medicineGuidance" class="tab-pane container fade" role="tabpanel" >
-				<h3>Medicine and Dosage from Guidance</h3>
-				<p>Show medicine, strength and dosage per guidance</p>
-			</div>
-
-
-
-
-
-			<div id="medicinePrice" class="tab-pane container fade" role="tabpanel" >
-				<h3>Medicine Price</h3>
-				<p>Showing the list of generic name, strength, and prices over years</p>
-				<strong>TODO: add search box, add filter for years (2011, 2012, ..., 2019), and update 2019 price</strong>
-				<div class="form d-none">
-					<div class="form-group">
-						<label>Name</label>
-						<input type="search" class="form-control"
-							data-bind="textInput: nameQuery" autocomplete="off" />
-					</div>
-				</div>
+			<div class="row">
+				Show table of regimens
 				<table class="table table-bordered table-hover">
 					<thead class="thead-dark">
 						<tr>
-							<th scope="col">Medicine</th>
-							<th scope="col">Year</th>
-							<th scope="col">Low</th>
-							<th scope="col">High</th>
-							<th scope="col">Average</th>
-							<th scope="col">Weighted</th>
+							<th scope="col" rowspan="2">Guidline<br />Year</th>
+							<th scope="col" rowspan="2">Name</th>
+							<th scope="col" rowspan="2">Composition</th>
+							<th scope="col" rowspan="2">Weight band (kg)</th>
+							<th scope="col" colspan="4">Weighted price, USD</th>
+						</tr>
+						<tr>
+							<th scope="col">2018 </th>
+							<th scope="col">Difference in %</th>
+							<th scope="col">2019</th>
+							<th scope="col">Difference in %</th>
 						</tr>
 					</thead>
-					<tbody data-bind="foreach: mprices">
+					<tbody>
 						<tr>
-							<th scope="col" data-bind="text: name, attr:{rowspan: rowspancount}" ></th>
-							<tb></tb>
-							<tb></tb>
-							<tb></tb>
-							<tb></tb>
-							<tb></tb>
+							<td scope="col">2017</th>
+							<td>Adult Drug-susceptible TB</th>
+							<td>2 RHZE(150/75/400/275) / 4 RH(150/75)</th>
+							<td>55-70 kg</th>
+							<td>31.34</th>
+							<td>0</th>
+							<td>35.57</th>
+							<td>13.5</th>
 						</tr>
-						<!-- ko foreach: yprices -->
 						<tr>
-							<td data-bind="text: year"></td>
-							<td data-bind="text: minprice"></td>
-							<td data-bind="text: maxprice"></td>
-							<td data-bind="text: avgprice"></td>
-							<td data-bind="text: wgtprice"></td>
+							<td scope="col">2017</th>
+							<td>Paediatric Drug-susceptible TB</th>
+							<td>2 RHZ(75/50/150) / 4 RH(75/50)</th>
+							<td>8-11 kg</th>
+							<td>12.86</th>
+							<td>0</th>
+							<td>13.57</th>
+							<td>5.5</th>
 						</tr>
-						<!-- /ko -->
+						<tr>
+							<td scope="col">2016</th>
+							<td>MDR-TB Conventional</th>
+							<td>8 Z Km Lfx Eto Cs / 12 Z Lfx Eto Cs</th>
+							<td>46-55 kg</th>
+							<td>777.88</th>
+							<td>0</th>
+							<td>741.96</th>
+							<td>-4.6</th>
+						</tr>
+						<tr>
+							<td scope="col">2016</th>
+							<td>MDR-TB STR</th>
+							<td>4 Km Cfz E H Mfx Pto Z / 5 Cfz E Mfx Z</th>
+							<td>30-50 kg</th>
+							<td>561.7167</th>
+							<td>0</th>
+							<td>406.10</th>
+							<td>-27.7</th>
+						</tr>
 					</tbody>
 				</table>
+			</div>
+			<div class="row">
+				<p>TODO: show chart here!!</p>
 			</div>
 		</div>
 
 
-        <!-- Javascript -->
-        <script src="../lib/jquery/jquery-3.3.1.js"></script>
-		<script src="../lib/popper/popper.min.js"></script>
-		<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
-        <script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
-        <script src="../lib/wow/js/wow.min.js"></script>
-        <script src="../lib/retina/retina.min.js"></script>
-		<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
-		<script src="../lib/knockout/knockout-3.5.0.js"></script>
-		<script src="../lib/site/js/scripts.js"></script>
-		<script src="gdf_data.js"></script>
 
-		<script type="text/Javascript">
+
+
+		<div id="regimenCost" class="tab-pane container fade" role="tabpanel">
+			<h3>Regimen Cost in Detail</h3>
+			<p>show a regimen in detail</p>
+		</div>
+
+
+
+
+
+		<div id="regimenEditor" class="tab-pane container fade" role="tabpanel">
+			<h3>Regimen Editor</h3>
+			<p>allow user to edit regimen</p>
+		</div>
+
+
+
+
+
+		<div id="medicineGuidance" class="tab-pane container fade" role="tabpanel">
+			<h3>Medicine and Dosage from Guidance</h3>
+			<p>Show medicine, strength and dosage per guidance</p>
+		</div>
+
+
+
+
+
+		<div id="medicinePrice" class="tab-pane container fade" role="tabpanel">
+			<h3>Medicine Price</h3>
+			<p>Showing the list of generic name, strength, and prices over years</p>
+			<strong>TODO: add search box, add filter for years (2011, 2012, ..., 2019), and update 2019 price</strong>
+			<div class="form d-none">
+				<div class="form-group">
+					<label>Name</label>
+					<input type="search" class="form-control" data-bind="textInput: nameQuery" autocomplete="off" />
+				</div>
+			</div>
+			<table class="table table-bordered table-hover">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Medicine</th>
+						<th scope="col">Year</th>
+						<th scope="col">Low</th>
+						<th scope="col">High</th>
+						<th scope="col">Average</th>
+						<th scope="col">Weighted</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: mprices">
+					<tr>
+						<th scope="col" data-bind="text: name, attr:{rowspan: rowspancount}"></th>
+						<tb></tb>
+						<tb></tb>
+						<tb></tb>
+						<tb></tb>
+						<tb></tb>
+					</tr>
+					<!-- ko foreach: yprices -->
+					<tr>
+						<td data-bind="text: year"></td>
+						<td data-bind="text: minprice"></td>
+						<td data-bind="text: maxprice"></td>
+						<td data-bind="text: avgprice"></td>
+						<td data-bind="text: wgtprice"></td>
+					</tr>
+					<!-- /ko -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+	<!-- Javascript -->
+	<script src="../lib/jquery/jquery-3.3.1.js"></script>
+	<script src="../lib/popper/popper.min.js"></script>
+	<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
+	<script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
+	<script src="../lib/wow/js/wow.min.js"></script>
+	<script src="../lib/retina/retina.min.js"></script>
+	<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="../lib/knockout/knockout-3.5.0.js"></script>
+	<script src="../lib/site/js/scripts.js"></script>
+	<script src="gdf_data.js"></script>
+
+	<script type="text/Javascript">
 			//console.log(gdfprice);
 			
 			/* Models */
@@ -265,5 +369,6 @@
 				console.log("ready called");
 			});
 		</script>
-    </body>
+</body>
+
 </html>

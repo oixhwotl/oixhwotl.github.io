@@ -1,0 +1,349 @@
+"Medicine", "Strength", "Cost per tablet", "Daily Dose in tablet", "Days in Months", "No. of months", "Number of tablets required", "Cost of Intensive Phase in US$"
+
+	{"gid":"2", "tbtid":"1", 
+	"name":"WHO Guidelines Drug-Susceptible TB 2017", 
+	{"rid":"2", "gid":"2", 
+	"name":"Pediatric Drug-Susceptible TB", 
+	"weightband":"12-15 kg", 
+	"composition":"2 RHZ(75/50/150)/ 4 RH(75/50)"},
+Treatment regimen:  2 RHZ(75/50/150)/4RH(75/50)
+4-7 kg weight band
+RHZ (75/50/150) 	275 mg	0.0428571428571429	1	30	2	60	$2.57
+RH(75/50)	125 mg	0.0350952380952381	1	30	4	120	$4.21
+8-11 kg weight band
+RHZ (75/50/150) 	275 mg	0.0428571428571429	2	30	2	120	$5.14
+RH(75/50)	125 mg	0.0350952380952381	2	30	4	240	$8.42
+12-15 kg weight band
+RHZ (75/50/150) 	275 mg	0.0428571428571429	3	30	2	180	$7.71
+RH(75/50)	125 mg	0.0350952380952381	3	30	4	360	$12.63
+16-24 kg weight band
+RHZ (75/50/150) 	275 mg	0.0428571428571429	4	30	2	240	$10.29
+RH(75/50)	125 mg	0.0350952380952381	4	30	4	480	$16.85
+
+	{"gid":"2", "tbtid":"1", 
+	"name":"WHO Guidelines Drug-Susceptible TB 2017", 
+        {"rid":"1", "gid":"2", 
+	"name":"Adult Drug-Susceptible TB", 
+	"weightband":"55-70 kg", 
+	"composition":"2 RHZE(150/75/400/275) / 4 RH(150/75)"},
+Treatment regimen: 2 RHZE(150/75/400/275)/4RH(150/75)
+25-39 kg weight band
+RHZE(150/75/400/275)	900 mg	0.07674	2	30	2	120	$9.21
+RH(150/75)	225 mg	0.0357410714285714	2	30	4	240	$8.58
+40-54 kg weight band
+RHZE(150/75/400/275)	900 mg	0.07674	3	30	2	180	$13.81
+RH(150/75)	225 mg	0.0357410714285714	3	30	4	360	$12.87
+55-70 kg weight band
+RHZE(150/75/400/275)	900 mg	0.07674	4	30	2	240	$18.42
+RH(150/75)	225 mg	0.0357410714285714	4	30	4	480	$17.16
+> 70 kg weight band
+RHZE(150/75/400/275)	900 mg	0.07674	5	30	2	300	$23.02
+RH(150/75)	225 mg	0.0357410714285714	5	30	4	600	$21.44
+
+
+
+	{"gid":"4", "tbtid":"2", 
+	"name":"WHO Guidelines on Drug-Resistant TB 2016", 
+	"yearPublished":"2016"},
+    {"rid":"4", "gid":"4",
+	"name":"Adult Drug-Resistant TB Longer Regimen", 
+	"weightband":"46-55 kg",
+	"composition":"8 Z Km Lfx Eto Cs / 12 Z Lfx Eto Cs"},
+Old LTR Km Eto / MDR-TB Conventional
+Treatment regimen: 8 Z Km Lfx Eto Cs WFI / 12 Z Lfx Eto Cs							
+46-55 kg weight band
+Pyrazinamide	400mg	0.0209204761904762	3	30	8	720	$15.06
+Kanamycin	1 g	0.667	1	30	8	240	$160.08
+Levofloxacin	250 mg	0.02815	4	30	8	960	$27.02
+Ethionamide	250 mg	0.09688	3	30	8	720	$69.75
+Cycloserine	250 mg	0.2519	2	30	8	480	$120.91
+
+Pyrazinamide	400mg	0.0209	3	30	12	1080	$22.59
+Levofloxacin	250 mg	0.0282	4	30	12	1440	$40.54
+Ethionamide	250 mg	0.0969	3	30	12	1080	$104.63
+Cycloserine	250 mg	0.2519	2	30	12	720	$181.37
+
+	{"gid":"4", "tbtid":"2", 
+	"name":"WHO Guidelines on Drug-Resistant TB 2016", 
+	"yearPublished":"2016"},
+     {"rid":"5", "gid":"4",
+	"name":"Adult Drug-Resistant TB Longer Regimen", 
+	"weightband":"46-55 kg",
+	"composition":"8 Z Km Mfx Eto Cs / 12 Z Mfx Eto Cs"},
+Old LTR Mfx Km
+Treatment regimen: 8 Z Km Mfx Eto Cs WFI / 12 Z Mfx Eto Cs							
+46-55 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	3	30	8	720	$15.06
+Kanamycin	1 g	0.667	1	30	8	240	$160.08
+Moxifloxacin	400 mg	0.219535	2	30	8	480	$105.38
+Ethionamide	250 mg	0.09688	3	30	8	720	$69.75
+Cycloserine	250 mg	0.2519	2	30	8	480	$120.91
+
+Pyrazinamide	400mg	0.0209	3	30	12	1080	$22.59
+Moxifloxacin	400 mg	0.2195	2	30	12	720	$158.07
+Ethionamide	250 mg	0.0969	3	30	12	1080	$104.63
+Cycloserine	250 mg	0.2519	2	30	12	720	$181.37
+
+	{"gid":"4", "tbtid":"2", 
+	"name":"WHO Guidelines on Drug-Resistant TB 2016", 
+	"yearPublished":"2016"},
+        {"rid":"5", "gid":"4",
+	"name":"Adult Drug-Resistant TB Longer Regimen", 
+	"weightband":"46-55 kg",
+	"composition":"8 Z Km Lfx Pto Cs / 12 Z Lfx Pto Cs"},
+Old LTR Km Pto
+Treatment regimen: 8 Z Km Lfx Pto Cs WFI / 12 Z Lfx Pto Cs							
+46-55 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	3	30	8	720	$15.06
+Kanamycin	1 g	0.667	1	30	8	240	$160.08
+Levofloxacin	250 mg	0.02815	4	30	8	960	$27.02
+Prothionamide	250 mg	0.10357	3	30	8	720	$74.57
+Cycloserine	250 mg	0.2519	2	30	8	480	$120.91
+
+Pyrazinamide	400mg	0.0209	3	30	12	1080	$22.59
+Levofloxacin	250 mg	0.0282	4	30	12	1440	$40.54
+Prothionamide	250 mg	0.1036	3	30	12	1080	$111.86
+Cycloserine	250 mg	0.2519	2	30	12	720	$181.37
+
+	{"gid":"4", "tbtid":"2", 
+	"name":"WHO Guidelines on Drug-Resistant TB 2016", 
+	"yearPublished":"2016"},
+    	{"rid":"", "gid":"4",
+	"name":"Adult Drug-Resistant TB Longer Regimen Cm Eto", 
+	"weightband":"46-55 kg",
+	"composition":"8 Cm Mfx Eto Cs Z / 12 Mfx Eto Cs Z"},
+Old LTR Mfx Cm Eto
+Treatment regimen: 8 Z Cm Mfx Eto Cs WFI / 12 Z Mfx Eto Cs							
+46-55 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	3	30	8	720	$15.06
+Capreomycin	1 g	2.239	1	30	8	240	$537.36
+Moxifloxacin	400 mg	0.219535	2	30	8	480	$105.38
+Ethionamide	250 mg	0.09688	3	30	8	720	$69.75
+Cycloserine	250 mg	0.2519	2	30	8	480	$120.91
+
+Pyrazinamide	400mg	0.0209	3	30	12	1080	$22.59
+Moxifloxacin	400 mg	0.2195	2	30	12	720	$158.07
+Ethionamide	250 mg	0.0969	3	30	12	1080	$104.63
+Cycloserine	250 mg	0.2519	2	30	12	720	$181.37
+
+	{"gid":"4", "tbtid":"2", 
+	"name":"WHO Guidelines on Drug-Resistant TB 2016", 
+	"yearPublished":"2016"},
+    	{"rid":"", "gid":"4",
+	"name":"Adult Drug-Resistant TB Longer Regimen Lfx Cm Eto", 
+	"weightband":"46-55 kg",
+	"composition":"8 Cm Lfx Eto Cs Z / 12 Lfx Eto Cs Z"},
+Old LTR Cm Eto
+Treatment regimen: 8 Z Cm Lfx Eto Cs WFI / 12 Z Lfx Eto Cs							
+46-55 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	3	30	8	720	$15.06
+Capreomycin	1 g	2.239	1	30	8	240	$537.36
+Levofloxacin	250 mg	0.02815	4	30	8	960	$27.02
+Ethionamide	250 mg	0.09688	3	30	8	720	$69.75
+Cycloserine	250 mg	0.2519	2	30	8	480	$120.91
+
+Pyrazinamide	400mg	0.0209	3	30	12	1080	$22.59
+Levofloxacin	250 mg	0.0282	4	30	12	1440	$40.54
+Ethionamide	250 mg	0.0969	3	30	12	1080	$104.63
+Cycloserine	250 mg	0.2519	2	30	12	720	$181.37
+
+	{"gid":"4", "tbtid":"2", 
+	"name":"WHO Guidelines on Drug-Resistant TB 2016", 
+	"yearPublished":"2016"},
+    	{"rid":"", "gid":"4",
+	"name":"Adult Drug-Resistant TB Longer Regimen Lfx Cm Pto", 
+	"weightband":"46-55 kg",
+	"composition":"8 Cm Lfx Pto Cs Z / 12 Lfx Pto Cs Z"},
+Old LTR Cm Pto
+Treatment regimen: 8 Z Cm Lfx Pto Cs WFI / 12 Z Lfx Pto Cs							
+46-55 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	3	30	8	720	$15.06
+Capreomycin	1 g	2.239	1	30	8	240	$537.36
+Levofloxacin	250 mg	0.02815	4	30	8	960	$27.02
+Prothionamide	250 mg	0.10357	3	30	8	720	$74.57
+Cycloserine	250 mg	0.2519	3	30	8	720	$181.37
+
+Pyrazinamide	400mg	0.0209	3	30	12	1080	$22.59
+Levofloxacin	250 mg	0.0282	4	30	12	1440	$40.54
+Prothionamide	250 mg	0.1036	3	30	12	1080	$111.86
+Cycloserine	250 mg	0.2519	2	30	12	720	$181.37
+
+	{"gid":"4", "tbtid":"2", 
+	"name":"WHO Guidelines on Drug-Resistant TB 2016", 
+	"yearPublished":"2016"},
+    {"rid":"", "gid":"4",
+	"name":"Adult Drug-Resistant TB Shorter Regimen", 
+	"weightband":"30-50 kg",
+	"composition":"4 Km Mfx Cfz Pto E H Z / 5 Mfx Cfz E Z "},	
+Old STR MDR-TB 30-50
+Treatment regimen: 4 Km Mfx Cfz Pto E H Z / 5 Mfx Cfz E Z							
+30-50 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	4	30	4	480	$10.04
+Kanamycin	    1 g	    0.667	            1	30	4	120	$80.04
+Moxifloxacin	400mg	0.219535	        1.5	30	4	180	$39.52
+Prothionamide	250 mg	0.10357	            2	30	4	240	$24.86
+Clofazimine	    100mg	0.54	            1	30	4	120	$64.80
+Etambutol	    400 mg	0.0338928571428571	2	30	4	240	$8.13
+Isoniazid	    300mg	0.0195619047619048	2	30	4	240	$4.69
+
+Pyrazinamide	400mg	0.0209	4	30	5	600	$12.55
+Moxifloxacin	400mg	0.2195	1.5	30	5	225	$49.40
+Prothionamide	250 mg	0.1036	2	30	5	300	$31.07
+Clofazimine	100mg	0.5400	1	30	5	150	$81.00
+
+
+	{"gid":"8", "tbtid":"2", 
+	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+	"yearPublished":"2019"}
+	{"rid":"", "gid":"8",
+	"name":"New Adult Drug-Resistant TB Longer Regimen Mfx 6 Lzd", 
+	"weightband":"46-55 kg",
+	"composition":"6 Mfx Bdq Lzd Cs Cfz / 14 Mfx Cs Cfz"},	
+New LTR Mfx 6 Lnz
+Treatment regimen: 6 Mfx Bdq Lzd Cs Cfz / 14 Mfx Cs Cfz							
+46-55 kg weight band							
+Moxifloxacin	400mg	0.219535	1	30	20	600	$131.72
+Bedaquiline	    100mg	2.1277		        6	188	$400.00
+Linezolid	    600mg	0.692155	1	30	6	180	$124.59
+Cycloserine	    250 mg	0.2519	    3	30	20	1800	$453.42
+Clofazimine	    100mg	0.54	    1	30	20	600	$324.00
+
+	{"gid":"8", "tbtid":"2", 
+	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+	"yearPublished":"2019"}
+    	{"rid":"", "gid":"8",
+	"name":"New Adult Drug-Resistant TB Longer Regimen Mfx 12 Lzd", 
+	"weightband":"46-55 kg",
+	"composition":"6 Mfx Bdq Lzd Cs Cfz / 6 Mfx Lzd Cs Cfz / 8 Mfx Cs Cfz"},
+New LTR Mfx 12 Lnz
+Treatment regimen: 6 Mfx Bdq Lzd Cs Cfz / 6 Mfx Lzd Cs Cfz / 8 Mfx Cs Cfz							
+46-55 kg weight band						
+Moxifloxacin	400mg	0.219535	1	30	20	600	$131.72
+Bedaquiline	100mg	2.1277			6	188	$400.00
+Linezolid	600mg	0.692155	1	30	12	360	$249.18
+Cycloserine	250 mg	0.2519	3	30	20	1800	$453.42
+Clofazimine	100mg	0.54	1	30	20	600	$324.00
+
+	{"gid":"8", "tbtid":"2", 
+	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+	"yearPublished":"2019"}
+    	{"rid":"", "gid":"8",
+	"name":"New Adult Drug-Resistant TB Longer Regimen Lfx 6 Lzd", 
+	"weightband":"46-55 kg",
+	"composition":"6 Lfx Bdq Lzd Cs Cfz / 14 Lfx Cs Cfz"},	
+New LTR Lfx 6 Lnz
+Treatment regimen: 6 Lfx Bdq Lzd Cs Cfz / 14 Lfx Cs Cfz							
+46-55 kg weight band							
+Levofloxacin	250 mg	0.02815	4	30	20	2400	$67.56
+Bedaquiline	100mg	2.1277			6	188	$400.00
+Linezolid	600mg	0.692155	1	30	6	180	$124.59
+Cycloserine	250 mg	0.2519	3	30	20	1800	$453.42
+Clofazimine	100mg	0.54	1	30	20	600	$324.00
+
+	{"gid":"8", "tbtid":"2", 
+	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+	"yearPublished":"2019"}
+    	{"rid":"", "gid":"8",
+	"name":"New Adult Drug-Resistant TB Longer Regimen Lfx 12 Lzd", 
+	"weightband":"46-55 kg",
+	"composition":"6 Lfx Bdq Lzd Cs Cfz / 6 Lfx Lzd Cs Cfz / 8 Lfx Cs Cfz"},	
+New LTR Lfx 12 Lnz
+Treatment regimen: 6 Lfx Bdq Lzd Cs Cfz / 6 Lfx Lzd Cs Cfz / 8 Lfx Cs Cfz							
+46-55 kg weight band							
+Levofloxacin	250 mg	0.02815	4	30	20	2400	$67.56
+Bedaquiline	100mg	2.1277			6	188	$400.00
+Linezolid	600mg	0.692155	1	30	12	360	$249.18
+Cycloserine	250 mg	0.2519	3	30	20	1800	$453.42
+Clofazimine	100mg	0.54	1	30	20	600	$324.00
+
+	{"gid":"8", "tbtid":"2", 
+	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+	"yearPublished":"2019"}
+	{"rid":"", "gid":"5",
+	"name":"Adult Drug-Resistant TB Shorter Regimen Amikacin-based", 
+	"weightband":"30-50 kg",
+	"composition":"4 Am Cfz E H Mfx Pto Z / 5 Cfz E Mfx Z"},	
+New STR 30-50 Am
+Treatment regimen: 4 Am Cfz E H Mfx Pto Z / 5 Cfz E Mfx Z							
+30-50 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	4	30	4	480	$10.04
+Amikacin	500mg	0.6582	2	30	4	240	$157.97
+Moxifloxacin	400mg	0.219535	1.5	30	4	180	$39.52
+Prothionamide	250 mg	0.10357	2	30	4	240	$24.86
+Clofazimine	100mg	0.54	1	30	4	120	$64.80
+Etambutol	400 mg	0.0338928571428571	2	30	4	240	$8.13
+Isoniazid	300mg	0.0195619047619048	2	30	4	240	$4.69
+
+Pyrazinamide	400mg	0.0209	4	30	5	600	$12.55
+Moxifloxacin	400mg	0.2195	1.5	30	5	225	$49.40
+Prothionamide	250 mg	0.1036	2	30	5	300	$31.07
+Clofazimine	100mg	0.5400	1	30	5	150	$81.00
+
+	{"gid":"8", "tbtid":"2", 
+	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+	"yearPublished":"2019"}
+    	{"rid":"", "gid":"5",
+	"name":"Adult Drug-Resistant TB Shorter Regimen Bedaquiline-based", 
+	"weightband":"30-50 kg",
+	"composition":"4 Bdq Mfx Cfz Pto E H Z / 5 Mfx Cfz E Z"},
+New STR 30-50 BDQ
+Treatment regimen: STR with BDQ instead of Injectable.							
+30-50 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	4	30	4	480	$10.04
+BDQ						0	$400.00
+Moxifloxacin	400mg	0.219535	        1.5	30	4	180	$39.52
+Prothionamide	250 mg	0.10357	            2	30	4	240	$24.86
+Clofazimine	    100mg	0.54	            1	30	4	120	$64.80
+Etambutol	    400 mg	0.0338928571428571	2	30	4	240	$8.13
+Isoniazid	    300mg	0.0195619047619048	2	30	4	240	$4.69
+
+Pyrazinamide	400mg	0.0209	4	30	5	600	$12.55
+Moxifloxacin	400mg	0.2195	1.5	30	5	225	$49.40
+Prothionamide	250 mg	0.1036	2	30	5	300	$31.07
+Clofazimine	100mg	0.5400	1	30	5	150	$81.00
+
+	{"gid":"8", "tbtid":"2", 
+	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+	"yearPublished":"2019"}
+    	{"rid":"", "gid":"8",
+	"name":"New Paediatric Drug-Resistant TB", 
+	"weightband":"10-15 kg",
+	"composition":"6 Lfx Cs Cfz Dlm Pas / 6 Lfx Cs Cfz Pas"},
+New LTR Kid 10-15 
+Treatment regimen: 6 Lfx Cs Cfz Dlm Pas / 6 Lfx Cs Cfz Pas							
+3-<6 Years FQ-S (10-15kg)							
+Levofloxacin	100 mg	0.1291	3	30	12	1080	$139.43
+Linezolid						0	
+Clofazimine	50 mg	0.3578	1	15	12	180	$64.40
+Cycloserine	125 mg	1	2	30	12	720	$720.00
+Delamanid	50 mg	2.529762	2	30	6	360	$910.71
+PAS	4 gm	1.32	1	30	12	360	$475.20
+
+	{"gid":"8", "tbtid":"2", 
+	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+	"yearPublished":"2019"}
+    	{"rid":"", "gid":"8",
+	"name":"New modified Adult Drug-Resistant TB Shorter Regimen", 
+	"weightband":"30-50 kg",
+	"composition":"4 Lzd H BDQ Mfx Cfz E Z / 2 BDQ Mfx Cfz E Z / 3 Mfx Cfz E Z	"},	
+Modified STR
+Treatment regimen: modified STR 4 Lzd H BDQ Mfx Cfz E Z / 2 BDQ Mfx Cfz E Z / 3 Mfx Cfz E Z							
+46-55 kg weight band							
+Pyrazinamide	400mg	0.0209204761904762	4	30	4	480	$10.04
+BDQ						0	$400.00
+Moxifloxacin	400mg	0.219535	2	30	4	240	$52.69
+Linezolid	600 mg	0.10357	1	30	4	120	$12.43
+Clofazimine	100mg	0.54	1	30	4	120	$64.80
+Etambutol	400 mg	0.0338928571428571	3	30	4	360	$12.20
+Isoniazid	300mg	0.0195619047619048	2	30	4	240	$4.69
+
+Pyrazinamide	400mg	0.0209204761904762	4	30	2	240	$5.02
+Moxifloxacin	400mg	0.219535	2	30	2	120	$26.34
+Etambutol	400 mg	0.0338928571428571	3	30	2	180	$6.10
+Clofazimine	100mg	0.54	1	30	2	60	$32.40
+BDQ						0	
+
+Pyrazinamide	400mg	0.0209204761904762	4	30	3	360	$7.53
+Moxifloxacin	400mg	0.219535	2	30	3	180	$39.52
+Etambutol	400 mg	0.0338928571428571	3	30	3	270	$9.15
+Clofazimine	100mg	0.54	1	30	3	90	$48.60
