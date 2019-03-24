@@ -1,6 +1,7 @@
 
 import sys
 import pandas as pd
+import numpy as np
 import json
 import math
 
@@ -12,6 +13,7 @@ wprice_csv_file = 'pricew.csv'
 wprice_json_file = 'pricew.json'
 gname_json_file = 'gname.json'
 gname_js_file = 'gname.js'
+data_js_file = 'gdf_data.js'
 
 sql_select0 = """
 with
@@ -227,10 +229,13 @@ mod = ['min', 'max', 'avg', 'wgt']
 
 # build genericname and sid
 gnames = df[csvheader[1]].unique()
+#print(gnames)
+gnames = np.sort(gnames)
+#print(gnames)
 
 price = []
 prod = []
-
+gid = 1
 for gname in gnames:
 	gdata = df[df.Generic == gname]
 	
@@ -239,6 +244,7 @@ for gname in gnames:
 	pnames = gdata[csvheader[0]].unique().tolist()
 
 	prod1 = {}
+	prod1['id'] = gid
 	prod1['name'] = gname
 	prod2 = []
 	prod2count = 0
@@ -248,7 +254,7 @@ for gname in gnames:
 		prod3['pcode'] = pnames[ind]
 		prod2.append(prod3)
 		prod2count += 1
-		
+
 	prod1['prod'] = prod2
 	prod1['count'] = prod2count
 	prod.append(prod1)
@@ -257,6 +263,7 @@ for gname in gnames:
 	#print(gdataw)
 	
 	price1 = {}
+	price1['id'] = gid
 	price1['name'] = gname
 	price2 = []
 	price2count = 0
@@ -293,13 +300,15 @@ for gname in gnames:
 	price1['count'] = price2count
 	price.append(price1)
 
+	gid += 1
 
-with open(price_js_file, 'wt') as fp:
-	fp.write("var gdfprice = ")
-	json.dump(price, fp)
-	fp.write(";")
-	
-with open(gname_js_file, 'wt') as fp:
+with open(data_js_file, 'wt') as fp:
 	fp.write("var gname = ")
 	json.dump(prod, fp)
-	fp.write(";")
+	fp.write(";\n")
+
+	fp.write("var gdfprice = ")
+	json.dump(price, fp)
+	fp.write(";\n")
+
+

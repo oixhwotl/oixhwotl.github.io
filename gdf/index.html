@@ -25,6 +25,75 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../lib/site/ico/apple-touch-icon-72-precomposed.png"/>
         <link rel="apple-touch-icon-precomposed" href="../lib/site/ico/apple-touch-icon-57-precomposed.png"/>
 
+
+        <!-- Javascript -->
+        <script src="../lib/jquery/jquery-3.3.1.js"></script>
+		<script src="../lib/popper/popper.min.js"></script>
+		<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
+        <script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
+        <script src="../lib/wow/js/wow.min.js"></script>
+        <script src="../lib/retina/retina.min.js"></script>
+		<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
+		<script src="../lib/knockout/knockout-3.5.0.js"></script>
+		<script src="../lib/site/js/scripts.js"></script>
+		<script src="gdf_data.js"></script>
+
+		<script type="text/Javascript">
+			//console.log(gdfprice);
+			
+			/* Models */
+			function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
+				var self = {};
+				self.year = ko.observable(year);
+				self.minprice = ko.observable(parseFloat(minprice).toFixed(4));
+				self.maxprice = ko.observable(parseFloat(maxprice).toFixed(4));
+				self.avgprice = ko.observable(parseFloat(avgprice).toFixed(4));
+				self.wgtprice = ko.observable(parseFloat(wgtprice).toFixed(4));
+				return self;
+			}
+
+			function MedicinePrice(name, count, yprices) {
+				var self = {};
+				self.name = ko.observable(name);
+				self.rowspancount = ko.observable(count + 1);
+				self.yprices = ko.observableArray(yprices);
+				return self;
+			}
+
+			function loadMedicinePrice(gdfpricelist) {
+				var mplist = [];
+				for (let mprice of gdfprice) {
+					//console.log(mprice['name']);
+					var plist = [];
+					for (let p of mprice['prices']) {
+						//console.log(p);
+						plist.push(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
+						//console.log(plist);
+					}
+					//console.log(plist.length);
+					mplist.push(new MedicinePrice(mprice['name'], mprice['count'], plist));
+					//console.log(mplist.length);
+				}
+				return mplist;
+			}
+
+			/* View Model */
+			function ViewModel1() {
+				var self = this;
+				self.nameQuery = ko.observable("");
+				self.mpricedata = loadMedicinePrice(gdfprice);
+				self.mprices = ko.observableArray(self.mpricedata);
+				//console.log(mplist.length);
+				//console.log(self.mprices().length);
+			};
+
+			$(document).ready(function() {
+				var vm1 = new ViewModel1();
+
+				ko.applyBindings(vm1);
+				console.log("ready called");
+			});
+		</script>
     </head>
 
     <body>
@@ -109,23 +178,33 @@
 			<div id="medicinePrice" class="tab-pane container fade" role="tabpanel" >
 				<h3>Medicine Price</h3>
 				<p>Showing the list of generic name, strength, and prices over years</p>
-				<table>
-					<thead>
+				<strong>TODO: add search box, add filter for years (2011, 2012, ..., 2019), and update 2019 price</strong>
+				<div class="form d-none">
+					<div class="form-group">
+						<label>Name</label>
+						<input type="search" class="form-control"
+							data-bind="textInput: nameQuery" autocomplete="off" />
+					</div>
+				</div>
+				<table class="table table-bordered table-hover">
+					<thead class="thead-dark">
 						<tr>
-							<th>Medicine</th>
-							<th>Year</th>
-							<th>Low Price</th>
-							<th>High Price</th>
-							<th>Average Price</th>
+							<th scope="col">Medicine</th>
+							<th scope="col">Year</th>
+							<th scope="col">Low</th>
+							<th scope="col">High</th>
+							<th scope="col">Average</th>
+							<th scope="col">Weighted</th>
 						</tr>
 					</thead>
 					<tbody data-bind="foreach: mprices">
 						<tr>
-							<td data-bind="text: name, attr:{rowspan: rowSpan}" ></td>
-							<tb class="hidden"></tb>
-							<tb class="hidden"></tb>
-							<tb class="hidden"></tb>
-							<tb class="hidden"></tb>
+							<th scope="col" data-bind="text: name, attr:{rowspan: rowspancount}" ></th>
+							<tb></tb>
+							<tb></tb>
+							<tb></tb>
+							<tb></tb>
+							<tb></tb>
 						</tr>
 						<!-- ko foreach: yprices -->
 						<tr>
@@ -133,66 +212,13 @@
 							<td data-bind="text: minprice"></td>
 							<td data-bind="text: maxprice"></td>
 							<td data-bind="text: avgprice"></td>
+							<td data-bind="text: wgtprice"></td>
 						</tr>
+						<!-- /ko -->
 					</tbody>
 				</table>
 			</div>
 		</div>
-
-
-        <!-- Javascript -->
-        <script src="../lib/jquery/jquery-3.3.1.js"></script>
-		<script src="../lib/popper/popper.min.js"></script>
-		<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
-        <script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
-        <script src="../lib/wow/js/wow.min.js"></script>
-        <script src="../lib/retina/retina.min.js"></script>
-		<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
-		<script src="../lib/knockout/knockout-3.5.0.js"></script>
-		<script src="../lib/site/js/scripts.js"></script>
-		<script src="price.js"></script>
-		<script src="gname.js"></script>
-		<script type="text/Javascript">
-			//console.log(gdfprice);
-			
-			/* Models */
-			function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
-				this.year = year;
-				this.minprice = parseFloat(minprice).toFixed(4);
-				this.maxprice = parseFloat(maxprice).toFixed(4);
-				this.avgprice = parseFloat(avgprice).toFixed(4);
-				this.wgtprice = parseFloat(wgtprice).toFixed(4);
-			}
-
-			function MedicinePrice(name, count, yprices) {
-				this.name = name;
-				this.rowSpan = count + 1;
-				this.yprices = yprices;
-			}
-
-			/* View Model */
-			function ViewModel1() {
-				var self = this;
-				self.mprices = ko.observableArray([]);
-				self.init = function() {
-					var mplist = [];
-					for (let mprice of gdfprice) {
-						var plist = [];
-						for (let p of mprice['prices']) {
-							plist.concat(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgh']));
-						}
-						mplist.concat(new MedicinePrice(mprice['name'], mprice['count'], plist));
-					}
-					self.mprices(mplist);
-				};
-			};
-
-			$(document).ready(function() {
-				var vm1 = new ViewModel1();
-				vm1.init();
-				ko.applyBindings(vm1);
-			});
-		</script>
     </body>
 
 </html>
