@@ -265,6 +265,7 @@ for gname in gnames:
 	prod1 = {}
 	prod1['id'] = gid
 	prod1['name'] = gname
+	prod1['inn'] = pinncodes[0]
 	prod2 = []
 	prod2count = 0
 	for ind, pid in enumerate(pids):
@@ -337,8 +338,8 @@ with open(data_js_file, 'wt') as fp:
 
 with open(data_json_file, 'wt') as fp:
 	fp.write("{\"prod\":")
-	json.dump(prod, fp)
+	fp.write(json.dumps(prod, indent=4, sort_keys=True))
 	fp.write(", \"price\":")
-	json.dump(price, fp)
+	fp.write(json.dumps(price, indent=5, sort_keys=True))
 	fp.write("}")
 
