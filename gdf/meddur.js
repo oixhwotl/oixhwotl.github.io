@@ -1,54 +1,34 @@
 var tbtype = [
-	{"tbtid":"1", "name":"Drug-Susceptible TB", "name2":"DS TB"},
-	{"tbtid":"2", "name":"Drug-Resistant TB", "name2":"DR TB"},
+	{"tbtid":"1", "name":"Drug-Susceptible TB", "name2":"DSTB"},
+	{"tbtid":"2", "name":"Drug-Resistant TB", "name2":"DRTB"},
 	{"tbtid":"3", "name":"Latent TB Infection", "name2":"LTBI"}
 ];
 var guidances = [
-	{"gid":"1", "tbtid":"1", 
-	"name":"WHO Guidelines Drug-Susceptible TB 2010", 
+{"gid":"1", "tbtid":"1", "name":"WHO Guidelines Drug-Susceptible TB 2010", 
 	"yearPublished":"2010"},
-	
-	{"gid":"2", "tbtid":"1", 
-	"name":"WHO Guidelines Drug-Susceptible TB 2017", 
+{"gid":"2", "tbtid":"1", "name":"WHO Guidelines Drug-Susceptible TB 2017", 
 	"yearPublished":"2017"},
-	
-	{"gid":"3", "tbtid":"2",
-	"name":"WHO Guidelines on Drug-Resistant TB 2014", 
+{"gid":"3", "tbtid":"2", "name":"WHO Guidelines on Drug-Resistant TB 2014", 
 	"yearPublished":"2014"},
-	
-	{"gid":"4", "tbtid":"2", 
-	"name":"WHO Guidelines on Drug-Resistant TB 2016", 
+{"gid":"4", "tbtid":"2", "name":"WHO Guidelines on Drug-Resistant TB 2016", 
 	"yearPublished":"2016"},
-	
-	{"gid":"5", "tbtid":"2", 
-	"name":"WHO Rapid Communication on Drug-Resistant TB 2018", 
+{"gid":"5", "tbtid":"2", "name":"WHO Rapid Communication on Drug-Resistant TB 2018", 
 	"yearPublished":"2018"},
-	
-	{"gid":"6", "tbtid":"3", 
-	"name":"WHO Guidelines Latent TB Infection 2018", 
+{"gid":"6", "tbtid":"3", "name":"WHO Guidelines Latent TB Infection 2018", 
 	"yearPublished":"2018"},
-	
-	{"gid":"7", "tbtid":"2", 
-	"name":"WHO Rapid Communication on Drug-Resistant TB 2018 and Expert Opinion",
+{"gid":"7", "tbtid":"2", "name":"WHO Rapid Communication on Drug-Resistant TB 2018 and Expert Opinion",
 	"yearPublished":"2018"},
-	
-	{"gid":"8", "tbtid":"2", 
-	"name":"New WHO Rapid Communication on Drug-Resistant TB",
+{"gid":"8", "tbtid":"2", "name":"New WHO Rapid Communication on Drug-Resistant TB",
 	"yearPublished":"2019"}
 ];
-
 var regimens = [
-	{"rid":"1", "gid":"2", 
-	"name":"Adult Drug-Susceptible TB", 
-	"weightband":"55-70 kg", 
+{"rid":"1", "gid":"2", "name":"Adult Drug-Susceptible TB", 
+	"weightband":"55-70", 
 	"composition":"2 RHZE(150/75/400/275) / 4 RH(150/75)"},
-	
-	{"rid":"2", "gid":"2", 
-	"name":"Pediatric Drug-Susceptible TB", 
+{"rid":"2", "gid":"2", "name":"Pediatric Drug-Susceptible TB", 
 	"weightband":"12-15 kg", 
 	"composition":"2 RHZ(75/50/150)/ 4 RH(75/50)"},
-	
-	{"rid":"3", "gid":"2", 
+{"rid":"3", "gid":"2", 
 	"name":"Pediatric Drug-Susceptible TB (include ethambutol)", 
 	"weightband":"12-15 kg", 
 	"composition":"2 RHZ(75/50/150) E(100) / 4 RH(75/50) E(100)"},
