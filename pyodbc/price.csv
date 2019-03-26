@@ -68,30 +68,6 @@ PID,Code,Generic,INNCode,Concentration,Description,SID,UnitPrice,MarketShare,Y20
 700.0,Am-500-(A)-100,Am-500,Amikacin,500 mg,Amikacin 500mg/2ml solution for injectable,17.0,1.1054,0.0,0,1,1,0,0,0,0,0,0
 839.0,Am-500-(A)-1,Am-500,Amikacin,500 mg,"Amikacin 500mg/2ml solution for injectable
 ",57.0,1.0,0.0,0,0,0,1,0,0,0,0,0
-903.0,Amx/Clv-125-(BTL)-1,Amx/Clv-125,Amoxicillin / Clavulanic acid,125,Amoxicillin Clavulanate 125mg powder for oral suspension,17.0,1.63,0.0,0,0,0,0,0,1,1,0,0
-903.0,Amx/Clv-125-(BTL)-1,Amx/Clv-125,Amoxicillin / Clavulanic acid,125,Amoxicillin Clavulanate 125mg powder for oral suspension,17.0,1.68,0.0,0,0,0,0,0,1,1,0,0
-903.0,Amx/Clv-125-(BTL)-1,Amx/Clv-125,Amoxicillin / Clavulanic acid,125,Amoxicillin Clavulanate 125mg powder for oral suspension,17.0,1.72,0.0,0,0,0,0,0,1,1,0,0
-903.0,Amx/Clv-125-(BTL)-1,Amx/Clv-125,Amoxicillin / Clavulanic acid,125,Amoxicillin Clavulanate 125mg powder for oral suspension,17.0,1.77,0.0,0,0,0,0,0,1,1,0,0
-903.0,Amx/Clv-125-(BTL)-1,Amx/Clv-125,Amoxicillin / Clavulanic acid,125,Amoxicillin Clavulanate 125mg powder for oral suspension,60.0,1.21,100.0,0,0,0,0,0,0,0,1,0
-903.0,Amx/Clv-125-(BTL)-1,Amx/Clv-125,Amoxicillin / Clavulanic acid,125,Amoxicillin Clavulanate 125mg powder for oral suspension,60.0,2.2,0.0,0,0,0,0,0,1,1,0,0
-903.0,Amx/Clv-125-(BTL)-1,Amx/Clv-125,Amoxicillin / Clavulanic acid,125,Amoxicillin Clavulanate 125mg powder for oral suspension,60.0,2.2,0.0,0,0,0,0,1,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,1.96,0.0,0,0,0,0,0,1,1,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,1.97,0.0,0,0,0,0,1,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.01,0.0,0,0,0,0,0,1,1,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.02,0.0,0,0,0,0,1,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.03,0.0,0,0,0,1,0,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.06,0.0,0,0,0,0,0,1,1,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.07,0.0,0,0,0,0,1,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.1,0.0,0,0,0,1,0,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.11,0.0,0,0,0,0,0,1,1,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.12,0.0,0,0,0,0,1,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.17,0.0,0,0,0,1,0,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,17.0,2.23,0.0,0,0,0,1,0,0,0,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,21.0,1.86,0.0,0,0,0,0,0,1,1,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,21.0,2.05,0.0,0,0,0,0,0,1,1,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,21.0,2.23,0.0,0,0,0,0,0,1,1,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,21.0,2.42,0.0,0,0,0,0,0,1,1,0,0
-849.0,Amx/Clv-250-(BTL)-1,Amx/Clv-250,Amoxicillin / Clavulanic acid,250,Amoxicillin Clavulanate 250mg powder for oral suspension,60.0,3.91,0.0,0,0,0,0,1,0,0,0,0
 846.0,Amx/Clv-250/125-(B)-20,Amx/Clv-250/125,Amoxicillin / Clavulanic acid,250/125,"Amoxicillin 250 mg (as Trihydrate) and Clavulanic
 Acid 125 mg (as Potassium Clavulanate)",59.0,0.105,0.0,0,0,0,0,0,1,1,0,0
 846.0,Amx/Clv-250/125-(B)-20,Amx/Clv-250/125,Amoxicillin / Clavulanic acid,250/125,"Amoxicillin 250 mg (as Trihydrate) and Clavulanic

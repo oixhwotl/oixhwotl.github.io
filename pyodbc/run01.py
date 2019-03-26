@@ -129,7 +129,7 @@ FROM
 	INNER JOIN tbl_BidRefs AS VBR ON VPP.BRID = VBR.BRID
 	INNER JOIN tbl_AuditLog AS VAL ON VAL.EID=VPP.PSID AND VAL.ETID=19
 WHERE 
-	VP.OLID in (3, 5) AND VP.Kits = 0 AND VP.Active=1
+	VP.OLID in (3, 5) AND VP.Kits = 0 AND VP.Active=1 AND PATINDEX('%BTL%', VP.Code) = 0
 ),
 
 PRD_ACTION(PID, Code, LDate, LAction, LComment) AS
