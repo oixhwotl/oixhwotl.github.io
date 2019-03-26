@@ -13,7 +13,8 @@ wprice_csv_file = 'pricew.csv'
 wprice_json_file = 'pricew.json'
 gname_json_file = 'gname.json'
 gname_js_file = 'gname.js'
-data_js_file = 'gdf_data.js'
+data_js_file = '../gdf/gdf_data.js'
+data_json_file = '../gdf/gdf_data.json'
 
 sql_select0 = """
 with
@@ -334,4 +335,10 @@ with open(data_js_file, 'wt') as fp:
 	json.dump(price, fp)
 	fp.write(";\n")
 
+with open(data_json_file, 'wt') as fp:
+	fp.write("{\"prod\":")
+	json.dump(prod, fp)
+	fp.write(", \"price\":")
+	json.dump(price, fp)
+	fp.write("}")
 
