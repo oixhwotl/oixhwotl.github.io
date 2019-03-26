@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="../lib/fontawesome-5.7/css/all.css" />
 	<link rel="stylesheet" href="../lib/wow/css/animate.css" />
 	<!-- <link rel="stylesheet" href="../lib/site/css/style.css"/> -->
+	<link rel="stylesheet" href="../lib/DataTables/datatables.css" />
 	<link rel="stylesheet" href="../lib/site/css/media-queries.css" />
 
 	<!-- Favicon and touch icons -->
@@ -58,7 +59,7 @@
 
 	<div class="tab-content container" id="myTabContent">
 		<div id="home" class="tab-pane container fade show active" role="tabpanel">
-			<div class="d-flex">
+			<div class="row d-flex">
 				<h3>Overview</h3>
 				<button class="ml-5 btn btn-outline-dark btn-sm d-print-none" type="button" data-toggle="collapse"
 					data-target="#overviewSetting" aria-expanded="false" aria-controls="collapseExample">
@@ -158,9 +159,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row container">
 				Show table of regimens
-				<table class="table table-bordered table-hover">
+				<table id="homeTable" class="table table-bordered table-hover display">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col" rowspan="2">Guidline<br />Year</th>
@@ -259,14 +260,14 @@
 		<div id="medicinePrice" class="tab-pane container fade" role="tabpanel">
 			<h3>Medicine Price</h3>
 			<p>Showing the list of generic name, strength, and prices over years</p>
-			<strong>TODO: add search box, add filter for years (2011, 2012, ..., 2019), and update 2019 price</strong>
+			<strong>TODO: Update 2019 price</strong>
 			<div class="form d-none">
 				<div class="form-group">
 					<label>Name</label>
 					<input type="search" class="form-control" data-bind="textInput: nameQuery" autocomplete="off" />
 				</div>
 			</div>
-			<table class="table table-bordered table-hover">
+			<table id="medicinePriceTable" class="table table-bordered table-hover display">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">Medicine</th>
@@ -278,16 +279,9 @@
 					</tr>
 				</thead>
 				<tbody data-bind="foreach: mprices">
-					<tr>
-						<th scope="col" data-bind="text: name, attr:{rowspan: rowspancount}"></th>
-						<tb></tb>
-						<tb></tb>
-						<tb></tb>
-						<tb></tb>
-						<tb></tb>
-					</tr>
 					<!-- ko foreach: yprices -->
 					<tr>
+						<th scope="col" data-bind="text: $parent.name"></th>
 						<td data-bind="text: year"></td>
 						<td data-bind="text: minprice"></td>
 						<td data-bind="text: maxprice"></td>
@@ -310,6 +304,7 @@
 	<script src="../lib/retina/retina.min.js"></script>
 	<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
 	<script src="../lib/knockout/knockout-3.5.0.js"></script>
+	<script src="../lib/DataTables/datatables.js"></script>
 	<script src="../lib/site/js/scripts.js"></script>
 	<script src="gdf_data.js"></script>
 
@@ -363,9 +358,12 @@
 			};
 
 			$(document).ready(function() {
+				$('#homeTable').DataTable();
+
 				var vm1 = new ViewModel1();
 
 				ko.applyBindings(vm1);
+				$('#medicinePriceTable').DataTable();
 				console.log("ready called");
 			});
 		</script>
