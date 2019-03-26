@@ -66,7 +66,7 @@ select OYear, CAST(PID as int) as PID, sum(weightedprice) as WeightedAverage fro
 sql_select = """
 WITH 
 
-PRD_SUP_DATE_ACTION(PSID, PID, Code, Generic, Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
+PRD_SUP_DATE_ACTION(PSID, PID, Code, Generic, INNCode, Concentration, Description, Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
 StaircasePricingID, Staircase, BidRefID, BidRef, ExpiryDate, LID, LDATE, LAction, LComment) AS 
 ( 
 SELECT 
@@ -99,6 +99,17 @@ SELECT
 			Code
 		)
 	END ) AS 'Generic',
+	CASE WHEN PATINDEX('%&#43;%', INNCode) > 2 THEN ( 
+			REPLACE(INNCode, '&#43;', '/')
+		) ELSE (
+			INNCode
+		) END INNCode,
+	CASE WHEN PATINDEX('%&#43;%', Concentration) > 2 THEN ( 
+			REPLACE(Concentration, '&#43;', '/')
+		) ELSE (
+			Concentration
+		) END INNCode,
+	VP.Description,
 	VP.Active,
 	VS.SID, VS.Name, VPP.Price, 
 	VP.PVK AS 'PackSize',
@@ -128,12 +139,12 @@ PRD_ACTION(PID, Code, LDate, LAction, LComment) AS
 		INNER JOIN tbl_AuditLog AS VAL ON VAL.EID=VP.PID AND VAL.ETID=3 -- and VAL.LAction in ('Canceled', 'Created')
 ),
 
-PRD_SUP_DATE_ACTION2(PSID, PID, Code, Generic, Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
+PRD_SUP_DATE_ACTION2(PSID, PID, Code, Generic, INNCode, Concentration, Description, Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
 StaircasePricingID, Staircase, BidRefID, BidRef, ExpiryDate, LID, LDATE, LAction, LComment, STARTDATE, ENDDATE) AS 
 ( -- PRICE ACTION
 	SELECT 
-		PSID, PID, Code, Generic
-		, Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
+		PSID, PID, Code, Generic, INNCode, Concentration, Description,
+		Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
 		StaircasePricingID, Staircase, BidRefID, BidRef, ExpiryDate, LID, LDATE, LAction, LComment, 
 		( CASE WHEN (LAction = 'Canceled') OR (LAction = 'Change of display' and LComment = '0') THEN 
 			( 
@@ -170,7 +181,7 @@ StaircasePricingID, Staircase, BidRefID, BidRef, ExpiryDate, LID, LDATE, LAction
 	FROM PRD_SUP_DATE_ACTION AS PSDA
 )
 
-SELECT distinct PID, Code, Generic, SID, UnitPrice, MarketShare
+SELECT distinct PID, Code, Generic, INNCode, Concentration, Description, SID, UnitPrice, MarketShare
 
 , (CASE WHEN BidRef like '%2011%' THEN ( 1 ) WHEN year(ExpiryDate) = 2012 THEN (1 ) ELSE ( 0 ) END ) AS Y2011
 , (CASE WHEN BidRef like '%2012%' THEN ( 1 ) WHEN year(ExpiryDate) = 2013 THEN (1 ) ELSE ( 0 ) END ) AS Y2012
@@ -186,7 +197,7 @@ FROM PRD_SUP_DATE_ACTION2 AS PSDA
 WHERE BidRefID <> 1
 order by 3, 1
 """
-csvheader = ['Code', 'Generic', 'SID', 'UnitPrice','MarketShare','Y2011','Y2012','Y2013','Y2014','Y2015','Y2016','Y2017','Y2018','Y2019', 'PID']
+csvheader = ['Code', 'Generic', 'SID', 'UnitPrice','MarketShare','Y2011','Y2012','Y2013','Y2014','Y2015','Y2016','Y2017','Y2018','Y2019', 'PID', 'INNCode', 'Description', 'Concentration']
 
 csvheader0 = ['OYear','PID', 'WeightedAverage']
 
@@ -243,7 +254,12 @@ for gname in gnames:
 	
 	pids1 = gdata[csvheader[14]].unique()
 	pids = pids1.astype(int).tolist()
-	pnames = gdata[csvheader[0]].unique().tolist()
+	#pnames = gdata[csvheader[0]].unique().tolist()
+	pinfo = gdata[gdata[csvheader[14]].isin(pids1)]
+	pnames = pinfo[csvheader[0]].tolist()
+	pinncodes = pinfo[csvheader[15]].tolist()
+	pconcentrations = pinfo[csvheader[17]].tolist()
+	pdescriptions = pinfo[csvheader[16]].tolist()
 
 	prod1 = {}
 	prod1['id'] = gid
@@ -254,9 +270,11 @@ for gname in gnames:
 		prod3 = {}
 		prod3['pid'] = pid
 		prod3['pcode'] = pnames[ind]
+		prod3['inn'] = pinncodes[ind]
+		prod3['desc'] = pdescriptions[ind]
+		prod3['concentration'] = pconcentrations[ind]
 		prod2.append(prod3)
 		prod2count += 1
-
 	prod1['prod'] = prod2
 	prod1['count'] = prod2count
 	prod.append(prod1)
@@ -267,6 +285,9 @@ for gname in gnames:
 	price1 = {}
 	price1['id'] = gid
 	price1['name'] = gname
+	price1['inn'] = pinncodes[0]
+	price1['concentration'] = pconcentrations[0]
+	
 	price2 = []
 	price2count = 0
 	for ind, yyear in enumerate(yyears1):
