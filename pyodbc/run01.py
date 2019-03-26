@@ -64,7 +64,6 @@ select OYear, CAST(PID as int) as PID, sum(weightedprice) as WeightedAverage fro
 
 
 sql_select = """
-
 WITH 
 
 PRD_SUP_DATE_ACTION(PSID, PID, Code, Generic, Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
@@ -74,7 +73,9 @@ SELECT
 	VPP.PSID, VPP.PID, VP.Code, 
 	( CASE WHEN PATINDEX('%-(%', Code) > 2 THEN (
 			CASE WHEN SUBSTRING(Code, 0, 4) = 'PAS' THEN (
-				SUBSTRING(Code, 0, len(code) - patindex('%(-%', reverse(code)) )
+				SUBSTRING(Code, 0, len(Code) - patindex('%(-%', reverse(Code)) )
+			) WHEN SUBSTRING(Code, 3, 3) = 'FDC' THEN (
+				SUBSTRING(Code, 7, len(Code) - patindex('%(-%', reverse(Code)) - 7)
 			) WHEN SUBSTRING(Code, 0, 4) = 'MDR' THEN (
 				CASE WHEN PATINDEX('%-B6-100%', Code) > 2 THEN (
 					'Pyr(B6)-100'
@@ -131,7 +132,8 @@ PRD_SUP_DATE_ACTION2(PSID, PID, Code, Generic, Active, SID, Supplier, Price, Pac
 StaircasePricingID, Staircase, BidRefID, BidRef, ExpiryDate, LID, LDATE, LAction, LComment, STARTDATE, ENDDATE) AS 
 ( -- PRICE ACTION
 	SELECT 
-		PSID, PID, Code, Generic, Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
+		PSID, PID, Code, Generic
+		, Active, SID, Supplier, Price, PackSize, UnitPrice, MarketShare, 
 		StaircasePricingID, Staircase, BidRefID, BidRef, ExpiryDate, LID, LDATE, LAction, LComment, 
 		( CASE WHEN (LAction = 'Canceled') OR (LAction = 'Change of display' and LComment = '0') THEN 
 			( 
@@ -182,7 +184,7 @@ SELECT distinct PID, Code, Generic, SID, UnitPrice, MarketShare
 
 FROM PRD_SUP_DATE_ACTION2 AS PSDA
 WHERE BidRefID <> 1
-order by 1, 2
+order by 3, 1
 """
 csvheader = ['Code', 'Generic', 'SID', 'UnitPrice','MarketShare','Y2011','Y2012','Y2013','Y2014','Y2015','Y2016','Y2017','Y2018','Y2019', 'PID']
 
@@ -209,7 +211,7 @@ def conn_and_save():
 	except Exception as e:
 		sys.exit(1)
 
-#conn_and_save()
+conn_and_save()
 
 dfw = pd.read_csv(wprice_csv_file)
 dfw[csvheader0[0]].astype('int')
