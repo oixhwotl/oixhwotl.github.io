@@ -30,343 +30,332 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="row">
-			<h2>Regimen cost calculator</h2>
-		</div>
-		<div class="row d-print-none">
-			<ul class="nav nav-tabs" id="myTab" role="tablist">
-				<li class="nav-item">
-					<a class="nav-link active" data-toggle="tab" role="tab" href="#home">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" role="tab" href="#regimenCost">Regimen Cost</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" role="tab" href="#regimenEditor">Regimen Editor</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" role="tab" href="#medicineGuidance">Medicines in Guidance</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" role="tab" href="#medicinePrice">Medicine Price</a>
-				</li>
-			</ul>
-		</div>
-		<div class="row mb-2">
-		</div>
-	</div>
 
-	<div class="tab-content container" id="myTabContent">
-		<div id="home" class="tab-pane container fade show active" role="tabpanel">
-			<div class="row d-flex">
-				<h3>Overview</h3>
-				<button class="ml-5 btn btn-outline-dark btn-sm d-print-none" type="button" data-toggle="collapse"
-					data-target="#overviewSetting" aria-expanded="false" aria-controls="collapseExample">
-					Settings
-				</button>
-			</div>
-			<div class="row d-print-none">
-				<div class="collapse" id="overviewSetting">
-					<div class="card card-body form-group small">
-						<p>Please configure below table by selecting regimens, years for prices and price mode.</p>
-						<div class="row">
-							<div class="col-sm">
-								<P>Select regimens to compare</P>
-								<div class="form-check">	
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>Adult drug-susceptible TB
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>Paediatric drug-susceptible TB
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>MDR-TB Conventional
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>STR MDR-TB
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>New LTR Mfx 6 Lnz
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>Modified STR
-									</label>
-								</div>
+<div class="container">
+	<div class="row">
+		<h2>Regimen cost calculator</h2>
+	</div>
+	<div class="row d-print-none">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link active" data-toggle="tab" role="tab" href="#home">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenCost">Regimen Cost</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenEditor">Regimen Editor</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" role="tab" href="#medicineGuidance">Medicines in Guidance</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" role="tab" href="#medicinePrice">Medicine Price</a>
+			</li>
+		</ul>
+	</div>
+	<div class="row mb-2">
+	</div>
+</div>
+
+<div class="tab-content container" id="myTabContent">
+
+	<!-- TAB HOME -->
+	<div id="home" class="tab-pane container fade show active" role="tabpanel">
+		<!-- HOME: OVERVIEW -->
+		<div class="row d-flex">
+			<h3>Overview</h3>
+			<button class="ml-5 btn btn-outline-dark btn-sm d-print-none" type="button" data-toggle="collapse"
+				data-target="#overviewSetting" aria-expanded="false" aria-controls="collapseExample">
+				Settings
+			</button>
+		</div>
+		<!-- HOME: OVERVIEW SETTING -->
+		<div class="row d-print-none">
+			<div class="collapse" id="overviewSetting">
+				<div class="card card-body form-group small">
+					<p>Please configure below table by selecting regimens, years for prices and price mode.</p>
+					<div class="row">
+						<div class="col-sm">
+							<P>Select regimens to compare</P>
+							<div class="form-check">	
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>Adult drug-susceptible TB
+								</label>
 							</div>
-							<div class="col-sm">
-								<P>Select years for prices</P>
-								<div class="form-check">	
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>2019
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>2018
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>2017
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>2016
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>2015
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="checkbox" class="form-check-input" value=""/>2014
-									</label>
-								</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>Paediatric drug-susceptible TB
+								</label>
 							</div>
-							<div class="col-sm">
-								<P>Select price mode:</P>
-								<div class="form-check">	
-									<label class="form-check-label">
-										<input type="radio" class="form-check-input" name="optradio"/>High
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="radio" class="form-check-input" name="optradio"/>Low
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="radio" class="form-check-input" name="optradio"/>Weighted
-									</label>
-								</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>MDR-TB Conventional
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>STR MDR-TB
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>New LTR Mfx 6 Lnz
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>Modified STR
+								</label>
+							</div>
+						</div>
+						<div class="col-sm">
+							<P>Select years for prices</P>
+							<div class="form-check">	
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>2019
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>2018
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>2017
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>2016
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>2015
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" value=""/>2014
+								</label>
+							</div>
+						</div>
+						<div class="col-sm">
+							<P>Select price mode:</P>
+							<div class="form-check">	
+								<label class="form-check-label">
+									<input type="radio" class="form-check-input" name="optradio"/>High
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="radio" class="form-check-input" name="optradio"/>Low
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="radio" class="form-check-input" name="optradio"/>Weighted
+								</label>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row container">
-				Show table of regimens
-				<table id="homeTable" class="table table-bordered table-hover display">
-					<thead class="thead-dark">
-						<tr>
-							<th scope="col" rowspan="2">Guidline<br />Year</th>
-							<th scope="col" rowspan="2">Name</th>
-							<th scope="col" rowspan="2">Composition</th>
-							<th scope="col" rowspan="2">Weight band (kg)</th>
-							<th scope="col" colspan="4">Weighted price, USD</th>
-						</tr>
-						<tr>
-							<th scope="col">2018 </th>
-							<th scope="col">Difference in %</th>
-							<th scope="col">2019</th>
-							<th scope="col">Difference in %</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td scope="col">2017</th>
-							<td>Adult Drug-susceptible TB</th>
-							<td>2 RHZE(150/75/400/275) / 4 RH(150/75)</th>
-							<td>55-70 kg</th>
-							<td>31.34</th>
-							<td>0</th>
-							<td>35.57</th>
-							<td>13.5</th>
-						</tr>
-						<tr>
-							<td scope="col">2017</th>
-							<td>Paediatric Drug-susceptible TB</th>
-							<td>2 RHZ(75/50/150) / 4 RH(75/50)</th>
-							<td>8-11 kg</th>
-							<td>12.86</th>
-							<td>0</th>
-							<td>13.57</th>
-							<td>5.5</th>
-						</tr>
-						<tr>
-							<td scope="col">2016</th>
-							<td>MDR-TB Conventional</th>
-							<td>8 Z Km Lfx Eto Cs / 12 Z Lfx Eto Cs</th>
-							<td>46-55 kg</th>
-							<td>777.88</th>
-							<td>0</th>
-							<td>741.96</th>
-							<td>-4.6</th>
-						</tr>
-						<tr>
-							<td scope="col">2016</th>
-							<td>MDR-TB STR</th>
-							<td>4 Km Cfz E H Mfx Pto Z / 5 Cfz E Mfx Z</th>
-							<td>30-50 kg</th>
-							<td>561.7167</th>
-							<td>0</th>
-							<td>406.10</th>
-							<td>-27.7</th>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="row">
-				<p>TODO: show chart here!!</p>
-			</div>
 		</div>
-
-
-
-
-
-		<div id="regimenCost" class="tab-pane container fade" role="tabpanel">
-			<h3>Regimen Cost in Detail</h3>
-			<p>show a regimen in detail</p>
-		</div>
-
-
-
-
-
-		<div id="regimenEditor" class="tab-pane container fade" role="tabpanel">
-			<h3>Regimen Editor</h3>
-			<p>allow user to edit regimen</p>
-		</div>
-
-
-
-
-
-		<div id="medicineGuidance" class="tab-pane container fade" role="tabpanel">
-			<h3>Medicine and Dosage from Guidance</h3>
-			<p>Show medicine, strength and dosage per guidance</p>
-		</div>
-
-
-
-
-
-		<div id="medicinePrice" class="tab-pane container fade" role="tabpanel">
-			<h3>Medicine Unit Price</h3>
-			<p>Showing the list of generic name, strength, and prices over years</p>
-			<strong>TODO: Update 2019 price</strong>
-			<div class="form d-none">
-				<div class="form-group">
-					<label>Name</label>
-					<input type="search" class="form-control" data-bind="textInput: nameQuery" autocomplete="off" />
-				</div>
-			</div>
-			<table id="medicinePriceTable" class="table table-bordered table-hover display">
+		<!-- HOME: TABLE OF REGIMENS -->
+		<div class="row">
+			<p>Show table of regimens</p>
+			<table id="homeTable" class="table table-bordered table-hover display">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Medicine</th>
-						<th scope="col">Year</th>
-						<th scope="col">Low</th>
-						<th scope="col">High</th>
-						<th scope="col">Average</th>
-						<th scope="col">Weighted</th>
+						<th scope="col" rowspan="2">Guidline<br />Year</th>
+						<th scope="col" rowspan="2">Name</th>
+						<th scope="col" rowspan="2">Composition</th>
+						<th scope="col" rowspan="2">Weight band (kg)</th>
+						<th scope="col" colspan="3">Weighted price, USD</th>
+					</tr>
+					<tr>
+						<th scope="col">2018</th>
+						<th scope="col">2019</th>
+						<th scope="col">Difference %</th>
 					</tr>
 				</thead>
-				<tbody data-bind="foreach: mprices">
-					<!-- ko foreach: yprices -->
+				<tbody>
 					<tr>
-						<th scope="col" data-bind="text: $parent.name"></th>
-						<td data-bind="text: year"></td>
-						<td data-bind="text: minprice"></td>
-						<td data-bind="text: maxprice"></td>
-						<td data-bind="text: avgprice"></td>
-						<td data-bind="text: wgtprice"></td>
+						<th scope="col">2017</th>
+						<td>Adult Drug-susceptible TB</td>
+						<td>2 RHZE(150/75/400/275) / 4 RH(150/75)</td>
+						<td>55-70 kg</td>
+						<td>31.34</td>
+						<td>35.57</td>
+						<td>13.5</td>
 					</tr>
-					<!-- /ko -->
+					<tr>
+						<th scope="col">2017</th>
+						<td>Paediatric Drug-susceptible TB</td>
+						<td>2 RHZ(75/50/150) / 4 RH(75/50)</td>
+						<td>8-11 kg</td>
+						<td>12.86</td>
+						<td>13.57</td>
+						<td>5.5</td>
+					</tr>
+					<tr>
+						<th scope="col">2016</th>
+						<td>MDR-TB Conventional</td>
+						<td>8 Z Km Lfx Eto Cs / 12 Z Lfx Eto Cs</td>
+						<td>46-55 kg</td>
+						<td>777.88</td>
+						<td>741.96</td>
+						<td>-4.6</td>
+					</tr>
+					<tr>
+						<th scope="col">2016</th>
+						<td>MDR-TB STR</td>
+						<td>4 Km Cfz E H Mfx Pto Z / 5 Cfz E Mfx Z</td>
+						<td>30-50 kg</td>
+						<td>561.7167</td>
+						<td>406.10</td>
+						<td>-27.7</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
+		<div class="row">
+			<p>TODO: show chart here!!</p>
+		</div>
 	</div>
 
+	<!-- TAB REGIMEN COST -->
+	<div id="regimenCost" class="tab-pane container fade" role="tabpanel">
+		<h3>Regimen Cost in Detail</h3>
+		<p>show a regimen in detail</p>
+	</div>
 
-	<!-- Javascript -->
-	<script src="../lib/jquery/jquery-3.3.1.js"></script>
-	<script src="../lib/popper/popper.min.js"></script>
-	<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
-	<script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
-	<script src="../lib/wow/js/wow.min.js"></script>
-	<script src="../lib/retina/retina.min.js"></script>
-	<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
-	<script src="../lib/knockout/knockout-3.5.0.js"></script>
-	<script src="../lib/DataTables/datatables.js"></script>
-	<script src="../lib/site/js/scripts.js"></script>
-	<script src="gdf_data.js"></script>
+	<!-- TAB REGIMEN EDITOR -->
+	<div id="regimenEditor" class="tab-pane container fade" role="tabpanel">
+		<h3>Regimen Editor</h3>
+		<p>allow user to edit regimen</p>
+	</div>
 
-	<script type="text/Javascript">
-			//console.log(gdfprice);
-			
-			/* Models */
-			function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
-				var self = {};
-				self.year = ko.observable(year);
-				self.minprice = ko.observable(parseFloat(minprice).toFixed(4));
-				self.maxprice = ko.observable(parseFloat(maxprice).toFixed(4));
-				self.avgprice = ko.observable(parseFloat(avgprice).toFixed(4));
-				self.wgtprice = ko.observable(parseFloat(wgtprice).toFixed(4));
-				return self;
+	<!-- TAB MEDICINES IN GUIDANCE -->
+	<div id="medicineGuidance" class="tab-pane container fade" role="tabpanel">
+		<h3>Medicine and Dosage from Guidance</h3>
+		<p>Show medicine, strength and dosage per guidance</p>
+	</div>
+
+	<!-- TAB MEDICINE PRICE -->
+	<div id="medicinePrice" class="tab-pane container fade" role="tabpanel">
+		<h3>Medicine Unit Price</h3>
+		<p>Showing the list of generic name, strength, and prices over years</p>
+		<strong>TODO: Update 2019 price</strong>
+		<div class="form d-none">
+			<div class="form-group">
+				<label>Name</label>
+				<input type="search" class="form-control" data-bind="textInput: nameQuery" autocomplete="off" />
+			</div>
+		</div>
+		<table id="medicinePriceTable" class="table table-bordered table-hover display">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Medicine</th>
+					<th scope="col">Year</th>
+					<th scope="col">Low</th>
+					<th scope="col">High</th>
+					<th scope="col">Average</th>
+					<th scope="col">Weighted</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: mprices">
+				<!-- ko foreach: yprices -->
+				<tr>
+					<th scope="col" data-bind="text: $parent.name"></th>
+					<td data-bind="text: year"></td>
+					<td data-bind="text: minprice"></td>
+					<td data-bind="text: maxprice"></td>
+					<td data-bind="text: avgprice"></td>
+					<td data-bind="text: wgtprice"></td>
+				</tr>
+				<!-- /ko -->
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<!-- Javascript -->
+<script src="../lib/jquery/jquery-3.3.1.js"></script>
+<script src="../lib/popper/popper.min.js"></script>
+<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
+<script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
+<script src="../lib/wow/js/wow.min.js"></script>
+<script src="../lib/retina/retina.min.js"></script>
+<script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="../lib/knockout/knockout-3.5.0.js"></script>
+<script src="../lib/DataTables/datatables.js"></script>
+<script src="../lib/site/js/scripts.js"></script>
+<script src="gdf_data.js"></script>
+
+<script type="text/Javascript">
+	//console.log(gdfprice);
+	
+	/* Models */
+	function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
+		var self = {};
+		self.year = ko.observable(year);
+		self.minprice = ko.observable(parseFloat(minprice).toFixed(4));
+		self.maxprice = ko.observable(parseFloat(maxprice).toFixed(4));
+		self.avgprice = ko.observable(parseFloat(avgprice).toFixed(4));
+		self.wgtprice = ko.observable(parseFloat(wgtprice).toFixed(4));
+		return self;
+	}
+
+	function MedicinePrice(name, count, yprices) {
+		var self = {};
+		self.name = ko.observable(name);
+		self.rowspancount = ko.observable(count + 1);
+		self.yprices = ko.observableArray(yprices);
+		return self;
+	}
+
+	function loadMedicinePrice(gdfpricelist) {
+		var mplist = [];
+		for (let mprice of gdfprice) {
+			//console.log(mprice['name']);
+			var plist = [];
+			for (let p of mprice['prices']) {
+				//console.log(p);
+				plist.push(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
+				//console.log(plist);
 			}
+			//console.log(plist.length);
+			mplist.push(new MedicinePrice(mprice['name'], mprice['count'], plist));
+			//console.log(mplist.length);
+		}
+		return mplist;
+	}
 
-			function MedicinePrice(name, count, yprices) {
-				var self = {};
-				self.name = ko.observable(name);
-				self.rowspancount = ko.observable(count + 1);
-				self.yprices = ko.observableArray(yprices);
-				return self;
-			}
+	/* View Model */
+	function ViewModel1() {
+		var self = this;
+		self.nameQuery = ko.observable("");
+		self.mpricedata = loadMedicinePrice(gdfprice);
+		self.mprices = ko.observableArray(self.mpricedata);
+		//console.log(mplist.length);
+		//console.log(self.mprices().length);
+	};
 
-			function loadMedicinePrice(gdfpricelist) {
-				var mplist = [];
-				for (let mprice of gdfprice) {
-					//console.log(mprice['name']);
-					var plist = [];
-					for (let p of mprice['prices']) {
-						//console.log(p);
-						plist.push(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
-						//console.log(plist);
-					}
-					//console.log(plist.length);
-					mplist.push(new MedicinePrice(mprice['name'], mprice['count'], plist));
-					//console.log(mplist.length);
-				}
-				return mplist;
-			}
+	$(document).ready(function() {
+		$('#homeTable').DataTable();
 
-			/* View Model */
-			function ViewModel1() {
-				var self = this;
-				self.nameQuery = ko.observable("");
-				self.mpricedata = loadMedicinePrice(gdfprice);
-				self.mprices = ko.observableArray(self.mpricedata);
-				//console.log(mplist.length);
-				//console.log(self.mprices().length);
-			};
+		var vm1 = new ViewModel1();
 
-			$(document).ready(function() {
-				$('#homeTable').DataTable();
+		ko.applyBindings(vm1);
+		$('#medicinePriceTable').DataTable();
+		console.log("ready called");
+	});
+</script>
 
-				var vm1 = new ViewModel1();
-
-				ko.applyBindings(vm1);
-				$('#medicinePriceTable').DataTable();
-				console.log("ready called");
-			});
-		</script>
 </body>
-
 </html>
