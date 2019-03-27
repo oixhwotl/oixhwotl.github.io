@@ -328,18 +328,17 @@ for gname in gnames:
 	gid += 1
 
 with open(data_js_file, 'wt') as fp:
-	fp.write("var gname = ")
+	fp.write("var genericnames = ")
 	json.dump(prod, fp)
 	fp.write(";\n")
-
-	fp.write("var gdfprice = ")
+	fp.write("var gdfprices = ")
 	json.dump(price, fp)
 	fp.write(";\n")
 
 with open(data_json_file, 'wt') as fp:
-	fp.write("{\"prod\":")
+	fp.write("{\"genericnames\":")
 	fp.write(json.dumps(prod, indent=4, sort_keys=True))
-	fp.write(", \"price\":")
+	fp.write(", \"gdfprices\":")
 	fp.write(json.dumps(price, indent=5, sort_keys=True))
 	fp.write("}")
 

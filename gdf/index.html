@@ -6,7 +6,8 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+	<meta name="robots" content="noindex"/>
+	
 	<title>GDF Regimen Cost Calculator</title>
 
 	<!-- CSS -->
@@ -243,6 +244,30 @@
 	<div id="medicineGuidance" class="tab-pane container fade" role="tabpanel">
 		<h3>Medicine and Dosage from Guidance</h3>
 		<p>Show medicine, strength and dosage per guidance</p>
+		<table id="guidanceTable" class="table table-bordered table-hover display">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Medicine</th>
+						<th scope="col">Year</th>
+						<th scope="col">Low</th>
+						<th scope="col">High</th>
+						<th scope="col">Average</th>
+						<th scope="col">Weighted</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: mprices">
+					<!-- ko foreach: yprices -->
+					<tr>
+						<th scope="row" data-bind="text: $parent.name"></th>
+						<td data-bind="text: year"></td>
+						<td data-bind="text: minprice"></td>
+						<td data-bind="text: maxprice"></td>
+						<td data-bind="text: avgprice"></td>
+						<td data-bind="text: wgtprice"></td>
+					</tr>
+					<!-- /ko -->
+				</tbody>
+			</table>
 	</div>
 
 	<!-- TAB MEDICINE PRICE -->
@@ -250,12 +275,6 @@
 		<h3>Medicine Unit Price</h3>
 		<p>Showing the list of generic name, strength, and prices over years</p>
 		<strong>TODO: Update 2019 price</strong>
-		<div class="form d-none">
-			<div class="form-group">
-				<label>Name</label>
-				<input type="search" class="form-control" data-bind="textInput: nameQuery" autocomplete="off" />
-			</div>
-		</div>
 		<table id="medicinePriceTable" class="table table-bordered table-hover display">
 			<thead class="thead-dark">
 				<tr>
@@ -295,12 +314,36 @@
 <script src="../lib/knockout/knockout-3.5.0.js"></script>
 <script src="../lib/DataTables/datatables.js"></script>
 <script src="../lib/site/js/scripts.js"></script>
+
+<!-- DATA START -->
 <script src="gdf_data.js"></script>
+<script src="guidance_data.js"></script>
+<!-- DATA END -->
 
 <script type="text/Javascript">
-	//console.log(gdfprice);
+	//console.log(gdfprices);
 	
-	/* Models */
+	/* Guidance Models */
+	function Guidance(gid, tbtype, name, yearPublished) {
+		var self = {};
+		self.gid = ko.observable(gid);
+		self.tbtype = ko.observable(gid);
+		self.name = ko.observable(name);
+		self.yearPublished = ko.observable(yearPublished);
+		return self;
+	}
+
+	/* Guidance Loader */
+	function loadGuidance(guidancelist) {
+		var glist = [];
+		for (let guide of guidancelist) {
+			console.log(guide['name']);
+			glist.push(new Guidance(guide['gid'], guide['tbtype'], guide['name'], guide['yearPublished']));
+		}
+		return glist;
+	}
+
+	/* Medicine Price Models */
 	function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
 		var self = {};
 		self.year = ko.observable(year);
@@ -319,9 +362,10 @@
 		return self;
 	}
 
+	/* Medicine Price Loader */
 	function loadMedicinePrice(gdfpricelist) {
 		var mplist = [];
-		for (let mprice of gdfprice) {
+		for (let mprice of gdfpricelist) {
 			//console.log(mprice['name']);
 			var plist = [];
 			for (let p of mprice['prices']) {
@@ -337,21 +381,18 @@
 	}
 
 	/* View Model */
-	function ViewModel1() {
+	function ViewModelMedicinePrice() {
 		var self = this;
-		self.nameQuery = ko.observable("");
-		self.mpricedata = loadMedicinePrice(gdfprice);
+		self.mpricedata = loadMedicinePrice(gdfprices);
 		self.mprices = ko.observableArray(self.mpricedata);
-		//console.log(mplist.length);
-		//console.log(self.mprices().length);
 	};
 
 	$(document).ready(function() {
 		$('#homeTable').DataTable();
 
-		var vm1 = new ViewModel1();
+		var vmMedicinePrice = new ViewModelMedicinePrice();
 
-		ko.applyBindings(vm1);
+		ko.applyBindings(vmMedicinePrice);
 		$('#medicinePriceTable').DataTable();
 		console.log("ready called");
 	});
