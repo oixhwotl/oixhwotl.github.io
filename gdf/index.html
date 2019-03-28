@@ -7,7 +7,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta name="robots" content="noindex"/>
-	
+
 	<title>GDF Regimen Cost Calculator</title>
 
 	<!-- CSS -->
@@ -245,29 +245,33 @@
 		<h3>Medicine and Dosage from Guidance</h3>
 		<p>Show medicine, strength and dosage per guidance</p>
 		<table id="guidanceTable" class="table table-bordered table-hover display">
-				<thead class="thead-dark">
-					<tr>
-						<th scope="col">Medicine</th>
-						<th scope="col">Year</th>
-						<th scope="col">Low</th>
-						<th scope="col">High</th>
-						<th scope="col">Average</th>
-						<th scope="col">Weighted</th>
-					</tr>
-				</thead>
-				<tbody data-bind="foreach: mprices">
-					<!-- ko foreach: yprices -->
-					<tr>
-						<th scope="row" data-bind="text: $parent.name"></th>
-						<td data-bind="text: year"></td>
-						<td data-bind="text: minprice"></td>
-						<td data-bind="text: maxprice"></td>
-						<td data-bind="text: avgprice"></td>
-						<td data-bind="text: wgtprice"></td>
-					</tr>
-					<!-- /ko -->
-				</tbody>
-			</table>
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col" class="d-none">ID</th>
+					<th scope="col">TB Type</th>
+					<th scope="col">Guidance Name</th>
+					<th scope="col">Year published</th>
+					<th scope="col">Medicine</th>
+					<th scope="col">Weightband (kg)</th>
+					<th scope="col">Dosage Type</th>
+					<th scope="col">Daily dosage</th>
+					<th scope="col">Duration in month</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: whoguidances">
+				<tr>
+					<th scope="row" class="d-none" data-bind="text: id"></th>
+					<th data-bind="text: gtbtype"></th>
+					<td data-bind="text: gname"></td>
+					<td data-bind="text: gyearPublished"></td>
+					<td data-bind="text: name"></td>
+					<td data-bind="text: weightband"></td>
+					<td data-bind="text: dtype"></td>
+					<td data-bind="text: dailydose"></td>
+					<td data-bind="text: durationInMonth"></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 
 	<!-- TAB MEDICINE PRICE -->
@@ -279,6 +283,7 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Medicine</th>
+					<th scope="col">INN</th>
 					<th scope="col">Year</th>
 					<th scope="col">Low</th>
 					<th scope="col">High</th>
@@ -290,6 +295,7 @@
 				<!-- ko foreach: yprices -->
 				<tr>
 					<th scope="row" data-bind="text: $parent.name"></th>
+					<th data-bind="text: $parent.inn"></th>
 					<td data-bind="text: year"></td>
 					<td data-bind="text: minprice"></td>
 					<td data-bind="text: maxprice"></td>
@@ -317,50 +323,94 @@
 
 <!-- DATA START -->
 <script src="gdf_data.js"></script>
-<script src="guidance_data.js"></script>
+<script src="who_data.js"></script>
 <!-- DATA END -->
 
 <script type="text/Javascript">
 	//console.log(gdfprices);
 	
-	/* Guidance Models */
-	function Guidance(gid, tbtype, name, yearPublished) {
+	/* WHOGuidance Models */
+	function WHOGuidance(id, tbtype, name, yearPublished) {
 		var self = {};
-		self.gid = ko.observable(gid);
-		self.tbtype = ko.observable(gid);
+
+		self.id = ko.observable(id);
+		self.tbtype = ko.observable(tbtype);
 		self.name = ko.observable(name);
 		self.yearPublished = ko.observable(yearPublished);
-		return self;
-	}
 
-	/* Guidance Loader */
-	function loadGuidance(guidancelist) {
-		var glist = [];
-		for (let guide of guidancelist) {
-			console.log(guide['name']);
-			glist.push(new Guidance(guide['gid'], guide['tbtype'], guide['name'], guide['yearPublished']));
+		return self;
+	};
+
+	function WHOMedicineDose(id, gid, gtbtype, gname, gyearPublished, 
+		name, weightband, dtype, dailydose, durationInMonth) {
+		
+		var self = {};
+
+		self.id = ko.observable(id);
+		self.gid = ko.observable(gid);
+		self.gtbtype = ko.observable(gtbtype);
+		self.gname = ko.observable(gname);
+		self.gyearPublished = ko.observable(gyearPublished);
+		self.name = ko.observable(name);
+		self.weightband = ko.observable(weightband);
+		self.dtype = ko.observable(dtype);
+		self.dailydose = ko.observable(dailydose);
+		self.durationInMonth = ko.observable(durationInMonth);
+
+		return self;
+	};
+
+	/* WHOGuidance Loader */
+	function loadWHOGuidance(whoGuidanceList, whoMedicineDoseList) {
+		var whoglist = [];
+		var whoglist2 = [];
+		for (let guide of whoGuidanceList) {
+			//console.log(guide['name']);
+			whoglist.push(new WHOGuidance(guide['id'], 
+				guide['tbtype'], guide['name'], guide['yearPublished']));
+			whoglist2.push(guide['id']);
 		}
-		return glist;
-	}
+
+		var whodoselist = [];
+		for (let dose of whoMedicineDoseList) {
+			console.log(dose['gid']);
+			var ginfo = whoGuidanceList[whoglist2.indexOf(dose['gid'])];
+			console.log(ginfo);
+			whodoselist.push(new WHOMedicineDose(
+				dose['id'], dose['gid'], 
+				ginfo['tbtype'], ginfo['name'], ginfo['yearPublished'],
+				dose['name'],
+				dose['weightband'], dose['dtype'], dose['dailydose'],
+				dose['durationInMonth']
+			));
+		}
+		return whodoselist;
+	};
 
 	/* Medicine Price Models */
-	function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
+	function MedicineYearPrice(year, minprice, maxprice, avgprice, wgtprice) {
 		var self = {};
+
 		self.year = ko.observable(year);
 		self.minprice = ko.observable(parseFloat(minprice).toFixed(4));
 		self.maxprice = ko.observable(parseFloat(maxprice).toFixed(4));
 		self.avgprice = ko.observable(parseFloat(avgprice).toFixed(4));
 		self.wgtprice = ko.observable(parseFloat(wgtprice).toFixed(4));
-		return self;
-	}
 
-	function MedicinePrice(name, count, yprices) {
+		return self;
+	};
+
+	function MedicinePrice(id, name, inn, count, yprices) {
 		var self = {};
+
+		self.id = ko.observable(id);
 		self.name = ko.observable(name);
+		self.inn = ko.observable(inn);
 		self.rowspancount = ko.observable(count + 1);
 		self.yprices = ko.observableArray(yprices);
+
 		return self;
-	}
+	};
 
 	/* Medicine Price Loader */
 	function loadMedicinePrice(gdfpricelist) {
@@ -370,30 +420,37 @@
 			var plist = [];
 			for (let p of mprice['prices']) {
 				//console.log(p);
-				plist.push(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
+				plist.push(new MedicineYearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
 				//console.log(plist);
 			}
 			//console.log(plist.length);
-			mplist.push(new MedicinePrice(mprice['name'], mprice['count'], plist));
+			mplist.push(new MedicinePrice(
+				mprice['id'], mprice['name'], mprice['inn'], 
+				mprice['count'], plist));
 			//console.log(mplist.length);
 		}
 		return mplist;
-	}
+	};
 
 	/* View Model */
-	function ViewModelMedicinePrice() {
+	function ViewModel() {
 		var self = this;
+
+		self.whoguidancedata = loadWHOGuidance(whoguidances, whomedicinedoses);
+		self.whoguidances = ko.observableArray(self.whoguidancedata);
+
 		self.mpricedata = loadMedicinePrice(gdfprices);
 		self.mprices = ko.observableArray(self.mpricedata);
 	};
 
 	$(document).ready(function() {
+		var vm = new ViewModel();
+		ko.applyBindings(vm);
+
 		$('#homeTable').DataTable();
-
-		var vmMedicinePrice = new ViewModelMedicinePrice();
-
-		ko.applyBindings(vmMedicinePrice);
+		$('#guidanceTable').DataTable();
 		$('#medicinePriceTable').DataTable();
+
 		console.log("ready called");
 	});
 </script>
