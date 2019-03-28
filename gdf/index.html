@@ -279,6 +279,11 @@
 		<h3>Medicine Unit Price</h3>
 		<p>Showing the list of generic name, strength, and prices over years</p>
 		<strong>TODO: Update 2019 price</strong>
+		<button type="button" data-page-size="10" data-table-id="medicinePriceTable">10</button>
+		<button type="button" data-page-size="20" data-table-id="medicinePriceTable">20</button>
+		<button type="button" data-page-size="50" data-table-id="medicinePriceTable">50</button>
+		<button type="button" data-page-size="100" data-table-id="medicinePriceTable">100</button>
+		<button type="button" data-page-size="200" data-table-id="medicinePriceTable">200</button>
 		<table id="medicinePriceTable" class="table table-bordered table-hover display">
 			<thead class="thead-dark">
 				<tr>
@@ -454,7 +459,13 @@
 				"enabled":true,
 				"container": "#paging-ui-container",
 				"countFormat": "{CP} of {TP}",
-				"size": 20
+				"size": 10
+			},
+			"sorting": {
+				"enabled": true
+			},
+			"filtering": {
+				"enabled": true
 			}
 		});
 		$('#medicinePriceTable').footable({
@@ -464,8 +475,24 @@
 				"countFormat": "{CP} of {TP}",
 				"size": 10
 			},
-			"sorting": true,
-			"filtering": true
+			"sorting": {
+				"enabled": true
+			},
+			"filtering": {
+				"enabled": true
+			}
+		});
+
+		$('[data-page-size]').on('click', function(e){
+			e.preventDefault();
+
+			var newSize = $(this).data('pageSize');
+			var tableId = $(this).data('tableId'); 
+			
+			console.log(tableId);
+			console.log($(document).find('#' + tableId));
+		
+			FooTable.get( $(document).find('#' + tableId) ).pageSize(newSize);
 		});
 
 		console.log("ready called");
