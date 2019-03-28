@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="../lib/fontawesome-5.7/css/all.css" />
 	<link rel="stylesheet" href="../lib/wow/css/animate.css" />
 	<!-- <link rel="stylesheet" href="../lib/site/css/style.css"/> -->
-	<link rel="stylesheet" href="../lib/DataTables/datatables.css" />
+	<link rel="stylesheet" href="../lib/footable/css/footable.bootstrap.css" />
 	<link rel="stylesheet" href="../lib/site/css/media-queries.css" />
 
 	<!-- Favicon and touch icons -->
@@ -318,7 +318,8 @@
 <script src="../lib/retina/retina.min.js"></script>
 <script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
 <script src="../lib/knockout/knockout-3.5.0.js"></script>
-<script src="../lib/DataTables/datatables.js"></script>
+<script src="../lib/moment/moment.js"></script>
+<script src="../lib/footable/js/footable.js"></script>
 <script src="../lib/site/js/scripts.js"></script>
 
 <!-- DATA START -->
@@ -373,9 +374,9 @@
 
 		var whodoselist = [];
 		for (let dose of whoMedicineDoseList) {
-			console.log(dose['gid']);
+			//console.log(dose['gid']);
 			var ginfo = whoGuidanceList[whoglist2.indexOf(dose['gid'])];
-			console.log(ginfo);
+			//console.log(ginfo);
 			whodoselist.push(new WHOMedicineDose(
 				dose['id'], dose['gid'], 
 				ginfo['tbtype'], ginfo['name'], ginfo['yearPublished'],
@@ -447,9 +448,23 @@
 		var vm = new ViewModel();
 		ko.applyBindings(vm);
 
-		$('#homeTable').DataTable();
-		$('#guidanceTable').DataTable();
-		$('#medicinePriceTable').DataTable();
+		$('#homeTable').footable();
+		$('#guidanceTable').footable({
+			"paging": {
+				"enabled":true,
+				"container": "#paging-ui-container",
+				"countFormat": "{CP} of {TP}",
+				"size": 20
+			}
+		});
+		$('#medicinePriceTable').footable({
+			"paging": {
+				"enabled":true,
+				"container": "#paging-ui-container",
+				"countFormat": "{CP} of {TP}",
+				"size": 20
+			}
+		});
 
 		console.log("ready called");
 	});
