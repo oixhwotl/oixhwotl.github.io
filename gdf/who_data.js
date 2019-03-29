@@ -219,5 +219,102 @@ var whomedicinedoses = [
 {"id":"59", "gid":"8", "name":"Trd-250", "weightband":"56-70", "dtype":"std", "dailydose":"3", "durationInMonth":""},
 {"id":"50", "gid":"8", "name":"Trd-250", "weightband":"71-", "dtype":"std", "dailydose":"3", "durationInMonth":""},
 
+{"id":"61", "gid":"8", "name":"E-400", "weightband":"30-35", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"62", "gid":"8", "name":"E-400", "weightband":"36-45", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"63", "gid":"8", "name":"E-400", "weightband":"46-55", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"64", "gid":"8", "name":"E-400", "weightband":"56-70", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"65", "gid":"8", "name":"E-400", "weightband":"71-", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+
+{"id":"66", "gid":"8", "name":"Dlm-50", "weightband":"30-35", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"67", "gid":"8", "name":"Dlm-50", "weightband":"36-45", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"68", "gid":"8", "name":"Dlm-50", "weightband":"46-55", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"69", "gid":"8", "name":"Dlm-50", "weightband":"56-70", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"70", "gid":"8", "name":"Dlm-50", "weightband":"71-", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+
+{"id":"71", "gid":"8", "name":"Z-400", "weightband":"30-35", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"72", "gid":"8", "name":"Z-400", "weightband":"36-45", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"73", "gid":"8", "name":"Z-400", "weightband":"46-55", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"74", "gid":"8", "name":"Z-400", "weightband":"56-70", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"75", "gid":"8", "name":"Z-400", "weightband":"71-", "dtype":"std", "dailydose":"5", "durationInMonth":""},
+
+{"id":"76", "gid":"8", "name":"Z-500", "weightband":"30-35", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"77", "gid":"8", "name":"Z-500", "weightband":"36-45", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"78", "gid":"8", "name":"Z-500", "weightband":"46-55", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"79", "gid":"8", "name":"Z-500", "weightband":"56-70", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"80", "gid":"8", "name":"Z-500", "weightband":"71-", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+
+{"id":"81", "gid":"8", "name":"Imp/Cls-500/500", "weightband":"30-35", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"82", "gid":"8", "name":"Imp/Cls-500/500", "weightband":"36-45", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"83", "gid":"8", "name":"Imp/Cls-500/500", "weightband":"46-55", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"84", "gid":"8", "name":"Imp/Cls-500/500", "weightband":"56-70", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"85", "gid":"8", "name":"Imp/Cls-500/500", "weightband":"71-", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+
+{"id":"86", "gid":"8", "name":"Mrp-1", "weightband":"30-35", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"87", "gid":"8", "name":"Mrp-1", "weightband":"36-45", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"88", "gid":"8", "name":"Mrp-1", "weightband":"46-55", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"89", "gid":"8", "name":"Mrp-1", "weightband":"56-70", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"90", "gid":"8", "name":"Mrp-1", "weightband":"71-", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+
+{"id":"91", "gid":"8", "name":"Am-500", "weightband":"30-35", "dtype":"std", "dailydose":"1.25", "durationInMonth":""},
+{"id":"92", "gid":"8", "name":"Am-500", "weightband":"36-45", "dtype":"std", "dailydose":"1.5", "durationInMonth":""},
+{"id":"93", "gid":"8", "name":"Am-500", "weightband":"46-55", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"94", "gid":"8", "name":"Am-500", "weightband":"56-70", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"95", "gid":"8", "name":"Am-500", "weightband":"71-", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+
+{"id":"96", "gid":"8", "name":"S-1", "weightband":"30-35", "dtype":"std", "dailydose":"0.6", "durationInMonth":""},
+{"id":"97", "gid":"8", "name":"S-1", "weightband":"36-45", "dtype":"std", "dailydose":"0.8", "durationInMonth":""},
+{"id":"98", "gid":"8", "name":"S-1", "weightband":"46-55", "dtype":"std", "dailydose":"1", "durationInMonth":""},
+{"id":"99", "gid":"8", "name":"S-1", "weightband":"56-70", "dtype":"std", "dailydose":"1", "durationInMonth":""},
+{"id":"100", "gid":"8", "name":"S-1", "weightband":"71-", "dtype":"std", "dailydose":"1", "durationInMonth":""},
+
+{"id":"101", "gid":"8", "name":"Eto-250", "weightband":"30-35", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"102", "gid":"8", "name":"Eto-250", "weightband":"36-45", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"103", "gid":"8", "name":"Eto-250", "weightband":"46-55", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"104", "gid":"8", "name":"Eto-250", "weightband":"56-70", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"105", "gid":"8", "name":"Eto-250", "weightband":"71-", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+
+{"id":"106", "gid":"8", "name":"Pto-250", "weightband":"30-35", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"107", "gid":"8", "name":"Pto-250", "weightband":"36-45", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"108", "gid":"8", "name":"Pto-250", "weightband":"46-55", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"109", "gid":"8", "name":"Pto-250", "weightband":"56-70", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+{"id":"110", "gid":"8", "name":"Pto-250", "weightband":"71-", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+
+{"id":"111", "gid":"8", "name":"PAS-(Na)-4", "weightband":"30-35", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"112", "gid":"8", "name":"PAS-(Na)-4", "weightband":"36-45", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"113", "gid":"8", "name":"PAS-(Na)-4", "weightband":"46-55", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"114", "gid":"8", "name":"PAS-(Na)-4", "weightband":"56-70", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"115", "gid":"8", "name":"PAS-(Na)-4", "weightband":"71-", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+
+{"id":"116", "gid":"8", "name":"PAS-(H)-4", "weightband":"30-35", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"117", "gid":"8", "name":"PAS-(H)-4", "weightband":"36-45", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"118", "gid":"8", "name":"PAS-(H)-4", "weightband":"46-55", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"119", "gid":"8", "name":"PAS-(H)-4", "weightband":"56-70", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"120", "gid":"8", "name":"PAS-(H)-4", "weightband":"71-", "dtype":"std", "dailydose":"3", "durationInMonth":""},
+
+{"id":"121", "gid":"8", "name":"H-300", "weightband":"30-35", "dtype":"std", "dailydose":"0.7", "durationInMonth":""},
+{"id":"122", "gid":"8", "name":"H-300", "weightband":"36-45", "dtype":"std", "dailydose":"1", "durationInMonth":""},
+{"id":"123", "gid":"8", "name":"H-300", "weightband":"46-55", "dtype":"std", "dailydose":"1", "durationInMonth":""},
+{"id":"124", "gid":"8", "name":"H-300", "weightband":"56-70", "dtype":"std", "dailydose":"1", "durationInMonth":""},
+{"id":"125", "gid":"8", "name":"H-300", "weightband":"71-", "dtype":"std", "dailydose":"1", "durationInMonth":""},
+
+{"id":"126", "gid":"8", "name":"H-300", "weightband":"30-35", "dtype":"high", "dailydose":"1.5", "durationInMonth":""},
+{"id":"127", "gid":"8", "name":"H-300", "weightband":"36-45", "dtype":"high", "dailydose":"1.5", "durationInMonth":""},
+{"id":"128", "gid":"8", "name":"H-300", "weightband":"46-55", "dtype":"high", "dailydose":"2", "durationInMonth":""},
+{"id":"129", "gid":"8", "name":"H-300", "weightband":"56-70", "dtype":"high", "dailydose":"2", "durationInMonth":""},
+{"id":"130", "gid":"8", "name":"H-300", "weightband":"71-", "dtype":"high", "dailydose":"2", "durationInMonth":""},
+
+{"id":"131", "gid":"8", "name":"Km-0.5", "weightband":"30-35", "dtype":"std", "dailydose":"1", "durationInMonth":""},
+{"id":"132", "gid":"8", "name":"Km-0.5", "weightband":"36-45", "dtype":"std", "dailydose":"1.5", "durationInMonth":""},
+{"id":"133", "gid":"8", "name":"Km-0.5", "weightband":"46-55", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"134", "gid":"8", "name":"Km-0.5", "weightband":"56-70", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"135", "gid":"8", "name":"Km-0.5", "weightband":"71-", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+
+{"id":"136", "gid":"8", "name":"Km-1", "weightband":"30-35", "dtype":"high", "dailydose":"0.63", "durationInMonth":""},
+{"id":"137", "gid":"8", "name":"Km-1", "weightband":"36-45", "dtype":"high", "dailydose":"0.75", "durationInMonth":""},
+{"id":"138", "gid":"8", "name":"Km-1", "weightband":"46-55", "dtype":"high", "dailydose":"1", "durationInMonth":""},
+{"id":"139", "gid":"8", "name":"Km-1", "weightband":"56-70", "dtype":"high", "dailydose":"1", "durationInMonth":""},
+{"id":"140", "gid":"8", "name":"Km-1", "weightband":"71-", "dtype":"high", "dailydose":"1", "durationInMonth":""},
+
+
 ];
 

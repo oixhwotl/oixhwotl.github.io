@@ -175,7 +175,7 @@
 						<th scope="col" rowspan="2">Name</th>
 						<th scope="col" rowspan="2">Composition</th>
 						<th scope="col" rowspan="2">Weight band (kg)</th>
-						<th scope="colgroup" colspan="3">Weighted price, USD</th>
+						<th scope="colgroup" colspan="3">Weighted price (USD)</th>
 					</tr>
 					<tr>
 						<th scope="col">2018</th>
@@ -185,7 +185,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td scope="row">2017</td>
+						<th scope="row">2017</th>
 						<td>Adult Drug-susceptible TB</td>
 						<td>2 RHZE(150/75/400/275) / 4 RH(150/75)</td>
 						<td>55-70 kg</td>
@@ -194,7 +194,7 @@
 						<td>13.5</td>
 					</tr>
 					<tr>
-						<td scope="row">2017</td>
+						<th scope="row">2017</th>
 						<td>Paediatric Drug-susceptible TB</td>
 						<td>2 RHZ(75/50/150) / 4 RH(75/50)</td>
 						<td>8-11 kg</td>
@@ -203,7 +203,7 @@
 						<td>5.5</td>
 					</tr>
 					<tr>
-						<td scope="row">2016</td>
+						<th scope="row">2016</th>
 						<td>MDR-TB Conventional</td>
 						<td>8 Z Km Lfx Eto Cs / 12 Z Lfx Eto Cs</td>
 						<td>46-55 kg</td>
@@ -212,7 +212,7 @@
 						<td>-4.6</td>
 					</tr>
 					<tr>
-						<td scope="row">2016</td>
+						<th scope="row">2016</th>
 						<td>MDR-TB STR</td>
 						<td>4 Km Cfz E H Mfx Pto Z / 5 Cfz E Mfx Z</td>
 						<td>30-50 kg</td>
@@ -292,6 +292,7 @@
 		<table id="medicinePriceTable" class="table table-bordered table-hover display">
 			<thead class="thead-dark">
 				<tr>
+					<th scope="col" class="d-none">ID</th>
 					<th scope="col">Medicine</th>
 					<th scope="col">INN</th>
 					<th scope="col">Year</th>
@@ -304,7 +305,8 @@
 			<tbody data-bind="foreach: mprices">
 				<!-- ko foreach: yprices -->
 				<tr>
-					<th scope="row" data-bind="text: $parent.name"></th>
+					<th scope="row" data-bind="text: $parent.id" class="d-none"></th>
+					<td data-bind="text: $parent.name"></th>
 					<th data-bind="text: $parent.inn"></th>
 					<td data-bind="text: year"></td>
 					<td data-bind="text: minprice"></td>
@@ -470,7 +472,8 @@
 				"enabled": true
 			},
 			"filtering": {
-				"enabled": true
+				"enabled": true,
+				"connectors": false
 			}
 		});
 		$('#medicinePriceTable').footable({
@@ -484,7 +487,8 @@
 				"enabled": true
 			},
 			"filtering": {
-				"enabled": true
+				"enabled": true,
+				"connectors": false
 			}
 		});
 
