@@ -113,65 +113,93 @@ table.footable > tbody > tr.footable-detail-row > th {
 		transform: rotate(359deg);
 	}
 }
-
+/* FontAwesome Icons - We're not actually using FontAwesome classes but instead provide a simple mapping from FontAwesome to FooTable class names. */
 .fooicon {
-	position: relative;
-	top: 1px;
 	display: inline-block;
-	font-family: 'Glyphicons Halflings' !important;
+	font-size: inherit;
+	font-family: "Font Awesome 5 Free";
 	font-style: normal;
 	font-weight: 400;
-	line-height: 1;
+	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
 }
-.fooicon:before,
-.fooicon:after {
+.fooicon::before,
+.fooicon::after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.fooicon-loader:before {
-	content: "\e030";
+.fooicon-loader::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f01e";
 }
-.fooicon-plus:before {
-	content: "\2b";
+.fooicon-plus::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f067";
 }
-.fooicon-minus:before {
-	content: "\2212";
+.fooicon-minus::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f068";
 }
-.fooicon-search:before {
-	content: "\e003";
+.fooicon-search::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f002";
 }
-.fooicon-remove:before {
-	content: "\e014";
+.fooicon-remove::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f00d";
 }
-.fooicon-sort:before {
-	content: "\e150";
+.fooicon-sort::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f0dc";
 }
-.fooicon-sort-asc:before {
-	content: "\e155";
+.fooicon-sort-asc::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f160";
 }
-.fooicon-sort-desc:before {
-	content: "\e156";
+.fooicon-sort-desc::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f161";
 }
-.fooicon-pencil:before {
-	content: "\270f";
+.fooicon-pencil::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f040";
 }
-.fooicon-trash:before {
-	content: "\e020";
+.fooicon-trash::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f1f8";
 }
-.fooicon-eye-close:before {
-	content: "\e106";
+.fooicon-eye-close::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f070";
 }
-.fooicon-flash:before {
-	content: "\e162";
+.fooicon-flash::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f0e7";
 }
-.fooicon-cog:before {
-	content: "\e019";
+.fooicon-cog::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f013";
 }
-.fooicon-stats:before {
-	content: "\e185";
+.fooicon-stats::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	content: "\f080";
 }
 
 table.footable > thead > tr.footable-filtering > th {

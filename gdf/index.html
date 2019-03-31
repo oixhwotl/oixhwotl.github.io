@@ -5,7 +5,7 @@
 
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="robots" content="noindex"/>
 
 	<title>GDF Regimen Cost Calculator</title>
@@ -13,56 +13,49 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300" />
-	<link rel="stylesheet" href="../lib/bootstrap-4.3/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="../lib/fontawesome-5.7/css/all.css" />
+	<link rel="stylesheet" href="../lib/bootstrap-4.3/css/bootstrap.css"/>
+
+	<link rel="stylesheet" href="../lib/fontawesome-5.8/css/all.css" />
+
 	<link rel="stylesheet" href="../lib/wow/css/animate.css" />
 	<!-- <link rel="stylesheet" href="../lib/site/css/style.css"/> -->
+	
 	<link rel="stylesheet" href="../lib/footable/css/footable.bootstrap.css" />
+
 	<link rel="stylesheet" href="../lib/site/css/media-queries.css" />
 
 	<!-- Favicon and touch icons -->
 	<link rel="shortcut icon" href="../lib/site/ico/favicon.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144"
-		href="../lib/site/ico/apple-touch-icon-144-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114"
-		href="../lib/site/ico/apple-touch-icon-114-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../lib/site/ico/apple-touch-icon-72-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" href="../lib/site/ico/apple-touch-icon-57-precomposed.png" />
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="navbar navbar-default container">
 	<div class="row">
 		<h2>Regimen cost calculator</h2>
 	</div>
 	<div class="row d-print-none">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 			<li class="nav-item">
-				<a class="nav-link active" data-toggle="tab" role="tab" href="#home">Home</a>
-			</li>
+				<a class="nav-link active" data-toggle="tab" role="tab" href="#home">Home</a></li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenCost">Regimen Cost</a>
-			</li>
+				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenCost">Regimen Cost</a></li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenEditor">Regimen Editor</a>
-			</li>
+				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenEditor">Regimen Editor</a></li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" role="tab" href="#medicineGuidance">Medicines in Guidance</a>
-			</li>
+				<a class="nav-link" data-toggle="tab" role="tab" href="#medicineGuidance">Medicines in Guidance</a></li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" role="tab" href="#medicinePrice">Medicine Price</a>
-			</li>
+				<a class="nav-link" data-toggle="tab" role="tab" href="#medicinePrice">Medicine Price</a></li>
 		</ul>
 	</div>
-	<div class="row mb-2">
 	</div>
 </div>
 
-<div class="tab-content container" id="myTabContent">
+<div class="tab-content" id="myTabContent">
 
 	<!-- TAB HOME -->
-	<div id="home" class="tab-pane container fade show active" role="tabpanel">
+	<div id="home" class="tab-pane container fade in show active" role="tabpanel">
 		<!-- HOME: OVERVIEW -->
 		<div class="row d-flex">
 			<h3>Overview</h3>
@@ -229,19 +222,19 @@
 	</div>
 
 	<!-- TAB REGIMEN COST -->
-	<div id="regimenCost" class="tab-pane container fade" role="tabpanel">
+	<div id="regimenCost" class="tab-pane container fade in" role="tabpanel">
 		<h3>Regimen Cost in Detail</h3>
 		<p>show a regimen in detail</p>
 	</div>
 
 	<!-- TAB REGIMEN EDITOR -->
-	<div id="regimenEditor" class="tab-pane container fade" role="tabpanel">
+	<div id="regimenEditor" class="tab-pane container fade in" role="tabpanel">
 		<h3>Regimen Editor</h3>
 		<p>allow user to edit regimen</p>
 	</div>
 
 	<!-- TAB MEDICINES IN GUIDANCE -->
-	<div id="medicineGuidance" class="tab-pane container fade" role="tabpanel">
+	<div id="medicineGuidance" class="tab-pane container fade in" role="tabpanel">
 		<h3>Medicine and Dosage from Guidance</h3>
 		<p>Show medicine, strength and dosage per guidance</p>
 		<button type="button" data-page-size="10" data-table-id="guidanceTable">10</button>
@@ -249,10 +242,10 @@
 		<button type="button" data-page-size="50" data-table-id="guidanceTable">50</button>
 		<button type="button" data-page-size="100" data-table-id="guidanceTable">100</button>
 		<button type="button" data-page-size="200" data-table-id="guidanceTable">200</button>
-		<table id="guidanceTable" class="table table-hover">
+		<table id="guidanceTable" class="table table-hover" style="display: table;">
 			<thead>
 				<tr>
-					<th scope="col" class="d-none">ID</th>
+					<th scope="col">ID</th>
 					<th scope="col">TB Type</th>
 					<th scope="col">Guidance Name</th>
 					<th scope="col">Year published</th>
@@ -265,7 +258,7 @@
 			</thead>
 			<tbody data-bind="foreach: whoguidances">
 				<tr>
-					<th scope="row" class="d-none" data-bind="text: id"></th>
+					<th scope="row" data-bind="text: id"></th>
 					<th data-bind="text: gtbtype"></th>
 					<td data-bind="text: gname"></td>
 					<td data-bind="text: gyearPublished"></td>
@@ -280,7 +273,7 @@
 	</div>
 
 	<!-- TAB MEDICINE PRICE -->
-	<div id="medicinePrice" class="tab-pane container fade" role="tabpanel">
+	<div id="medicinePrice" class="tab-pane container fade in" role="tabpanel">
 		<h3>Medicine Unit Price</h3>
 		<p>Showing the list of generic name, strength, and prices over years</p>
 		<strong>TODO: Update 2019 price</strong>
@@ -292,7 +285,7 @@
 		<table id="medicinePriceTable" class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col" class="d-none">ID</th>
+					<th scope="col">ID</th>
 					<th scope="col">Medicine</th>
 					<th scope="col">INN</th>
 					<th scope="col">Year</th>
@@ -305,7 +298,7 @@
 			<tbody data-bind="foreach: mprices">
 				<!-- ko foreach: yprices -->
 				<tr>
-					<th scope="row" data-bind="text: $parent.id" class="d-none"></th>
+					<th scope="row" data-bind="text: $parent.id"></th>
 					<td data-bind="text: $parent.name"></th>
 					<th data-bind="text: $parent.inn"></th>
 					<td data-bind="text: year"></td>
@@ -323,15 +316,16 @@
 
 <!-- Javascript -->
 <script src="../lib/jquery/jquery-3.3.1.js"></script>
+<script src="../lib/jquery/jquery-ui.min.js"></script>
 <script src="../lib/popper/popper.min.js"></script>
-<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
-<script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
+<script src="../lib/bootstrap-4.3/js/bootstrap.js"></script>
 <script src="../lib/wow/js/wow.min.js"></script>
 <script src="../lib/retina/retina.min.js"></script>
 <script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
 <script src="../lib/knockout/knockout-3.5.0.js"></script>
 <script src="../lib/moment/moment.js"></script>
 <script src="../lib/footable/js/footable.js"></script>
+
 <script src="../lib/site/js/scripts.js"></script>
 
 <!-- DATA START -->

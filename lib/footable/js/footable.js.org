@@ -4356,7 +4356,6 @@
 			e.stopPropagation();
 			var self = e.data.self;
 			self.$dropdown.parent().toggleClass('open');
-			self.$dropdown.toggleClass('show');
 			if (self.$dropdown.parent().hasClass('open')) $(document).on('click.footable', { self: self }, self._onDocumentClicked);
 			else $(document).off('click.footable', self._onDocumentClicked);
 		},
@@ -4371,7 +4370,6 @@
 				e.preventDefault();
 				var self = e.data.self;
 				self.$dropdown.parent().removeClass('open');
-				self.$dropdown.toggleClass('show');
 				$(document).off('click.footable', self._onDocumentClicked);
 			}
 		}
