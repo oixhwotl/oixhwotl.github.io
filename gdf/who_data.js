@@ -1,20 +1,18 @@
+var whotbtype = [
+{"id":"1", "tbtype":"DSTB", "name":"Drug-Susceptible TB"},
+{"id":"2", "tbtype":"DRTB", "name":"Drug-Resistant TB"},
+{"id":"3", "tbtype":"LTBI", "name":"Latent TB Injection"}
+];
+
 var whoguidances = [
-{"id":"1", "tbtype":"DSTB", "name":"WHO Guidelines Drug-Susceptible TB 2010", 
-	"yearPublished":"2010"},
-{"id":"2", "tbtype":"DSTB", "name":"WHO Guidelines Drug-Susceptible TB 2017", 
-	"yearPublished":"2017"},
-{"id":"3", "tbtype":"DRTB", "name":"WHO Guidelines on Drug-Resistant TB 2014", 
-	"yearPublished":"2014"},
-{"id":"4", "tbtype":"DRTB", "name":"WHO Guidelines on Drug-Resistant TB 2016", 
-	"yearPublished":"2016"},
-{"id":"5", "tbtype":"DRTB", "name":"WHO Rapid Communication on Drug-Resistant TB 2018", 
-	"yearPublished":"2018"},
-{"id":"6", "tbtype":"LTBI", "name":"WHO Guidelines Latent TB Infection 2018", 
-	"yearPublished":"2018"},
-{"id":"7", "tbtype":"DRTB", "name":"WHO Rapid Communication on Drug-Resistant TB 2018 and Expert Opinion",
-	"yearPublished":"2018"},
-{"id":"8", "tbtype":"DRTB", "name":"WHO consolidated guidelines on Drug-Resistant TB treatment",
-	"yearPublished":"2019"}
+{"id":"1", "tbtype":"DSTB", "name":"WHO Guidelines Drug-Susceptible TB 2010", "yearPublished":"2010"},
+{"id":"2", "tbtype":"DSTB", "name":"WHO Guidelines Drug-Susceptible TB 2017", "yearPublished":"2017"},
+{"id":"3", "tbtype":"DRTB", "name":"WHO Guidelines on Drug-Resistant TB 2014", "yearPublished":"2014"},
+{"id":"4", "tbtype":"DRTB", "name":"WHO Guidelines on Drug-Resistant TB 2016", "yearPublished":"2016"},
+{"id":"5", "tbtype":"DRTB", "name":"WHO Rapid Communication on Drug-Resistant TB 2018", "yearPublished":"2018"},
+{"id":"6", "tbtype":"LTBI", "name":"WHO Guidelines Latent TB Infection 2018", "yearPublished":"2018"},
+{"id":"7", "tbtype":"DRTB", "name":"WHO Rapid Communication on Drug-Resistant TB 2018 and Expert Opinion", "yearPublished":"2018"},
+{"id":"8", "tbtype":"DRTB", "name":"WHO consolidated guidelines on Drug-Resistant TB treatment", "yearPublished":"2019"}
 ];
 
 var regimens = [
@@ -315,6 +313,11 @@ var whomedicinedoses = [
 {"id":"139", "gid":"8", "name":"Km-1", "weightband":"56-70", "dtype":"high", "dailydose":"1", "durationInMonth":""},
 {"id":"140", "gid":"8", "name":"Km-1", "weightband":"71-", "dtype":"high", "dailydose":"1", "durationInMonth":""},
 
+{"id":"141", "gid":"8", "name":"Cm-0.5", "weightband":"30-35", "dtype":"std", "dailydose":"1.25", "durationInMonth":""},
+{"id":"142", "gid":"8", "name":"Cm-0.5", "weightband":"36-45", "dtype":"std", "dailydose":"1.5", "durationInMonth":""},
+{"id":"143", "gid":"8", "name":"Cm-0.5", "weightband":"46-55", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"144", "gid":"8", "name":"Cm-0.5", "weightband":"56-70", "dtype":"std", "dailydose":"2", "durationInMonth":""},
+{"id":"145", "gid":"8", "name":"Cm-0.5", "weightband":"71-", "dtype":"std", "dailydose":"2", "durationInMonth":""},
 
 ];
 

@@ -270,15 +270,15 @@
 		<table id="guidanceTable" class="table table-hover" style="display: table;">
 			<thead>
 				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">TB Type</th>
-					<th scope="col">Guidance Name</th>
-					<th scope="col">Year published</th>
-					<th scope="col">Medicine</th>
-					<th scope="col">Weightband (kg)</th>
-					<th scope="col">Dosage Type</th>
-					<th scope="col">Daily dosage</th>
-					<th scope="col">Duration in month</th>
+					<th data-name="id" scope="col">ID</th>
+					<th data-name="gtbtype" scope="col">TB Type</th>
+					<th data-name="gname" scope="col">Guidance Name</th>
+					<th data-name="gyearPublished" scope="col">Year published</th>
+					<th data-name="name" scope="col">Medicine</th>
+					<th data-name="weightband" scope="col">Weightband (kg)</th>
+					<th data-name="dtype" scope="col">Dosage Type</th>
+					<th data-name="dailydose" scope="col">Daily dosage</th>
+					<th data-name="durationInMonth" scope="col">Duration in month</th>
 				</tr>
 			</thead>
 			<tbody data-bind="foreach: whoguidances">
@@ -296,61 +296,80 @@
 			</tbody>
 		</table>
 
-		<div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
-				<style scoped>
-					/* provides a red astrix to denote required fields - this should be included in common stylesheet */
-					.form-group.required .control-label:after {
-						content:"*";
-						color:red;
-						margin-left: 4px;
-					}
-				</style>
-				<div class="modal-dialog" role="document">
-					<form class="modal-content form-horizontal" id="editor">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-							<h4 class="modal-title" id="editor-title">Add Row</h4>
-						</div>
-						<div class="modal-body">
-							<input type="number" id="id" name="id" class="hidden"/>
-							<div class="form-group required">
-								<label for="firstName" class="col-sm-3 control-label">First Name</label>
-								<div class="col-sm-9">
-									<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
-								</div>
-							</div>
-							<div class="form-group required">
-								<label for="lastName" class="col-sm-3 control-label">Last Name</label>
-								<div class="col-sm-9">
-									<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="jobTitle" class="col-sm-3 control-label">Job Title</label>
-								<div class="col-sm-9">
-									<input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Job Title">
-								</div>
-							</div>
-							<div class="form-group required">
-								<label for="startedOn" class="col-sm-3 control-label">Started On</label>
-								<div class="col-sm-9">
-									<input type="date" class="form-control" id="startedOn" name="startedOn" placeholder="Started On" required>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="dob" class="col-sm-3 control-label">Date of Birth</label>
-								<div class="col-sm-9">
-									<input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
-								</div>
+		<div class="modal fade" id="editor-modal-guidance" tabindex="-1" role="dialog" aria-labelledby="editor-title">
+			<div class="modal-dialog" role="document">
+				<form class="modal-content form-horizontal" id="editor">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span></button>
+						<h4 class="modal-title" id="editor-g-title">Add Row</h4>
+					</div>
+					<div class="modal-body">
+						<input type="number" id="id" name="id" class="d-none hidden"/>
+						<div class="form-group required">
+							<label for="gtbtype" class="col-sm-3 control-label">TB Type</label>
+							<div class="col-sm-9">
+								<select id="gtbtype" class="form-control" name="gtbType" 
+									data-bind="options: tbtypes, optionsText: 'name', optionsValue: 'tbtype'"
+									placehoder="TB Type" required>
+								</select>
 							</div>
 						</div>
-						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Save changes</button>
-							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<div class="form-group required">
+							<label for="gname" class="col-sm-3 control-label">Guidance Name</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" 
+									id="gname" name="gname" placeholder="WHO Guideline">
+							</div>
 						</div>
-					</form>
-				</div>
+						<div class="form-group">
+							<label for="yearPublished" class="col-sm-3 control-label">Published Year</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" 
+									id="yearPublished" name="yearPublished" placeholder="2019">
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="name" class="col-sm-3 control-label">Medicine</label>
+							<div class="col-sm-9">
+								<select id="name" class="form-control" name="name"
+									data-bind="options: mprices, optionsText: 'name', optionsValue: 'name'"
+									placeholder="Medicine Product Name" required>
+									</select>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="weightband" class="col-sm-3 control-label">Weightband (kg)</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="weightband" name="weightband" placeholder="56-70" required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="dtype" class="col-sm-3 control-label">Dosage Type</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="dtype" name="dtype" placeholder="std"/>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="dailydose" class="col-sm-3 control-label">Daily dosage</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="dailydose" name="dailydose" placeholder="1" required/>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="durationInMonth" class="col-sm-3 control-label">Duration in Month</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="durationInMonth" name="durationInMonth" placeholder="1" required/>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Save changes</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					</div>
+				</form>
 			</div>
+		</div>
 	</div>
 
 	<!-- TAB MEDICINE PRICE -->
@@ -417,6 +436,26 @@
 <script type="text/Javascript">
 	//console.log(gdfprices);
 	
+	/* TB Type */
+	function TBType(id, tbtype, name) {
+		var self = {};
+
+		self.id = ko.observable(id);
+		self.tbtype = ko.observable(tbtype);
+		self.name = ko.observable(name);
+
+		return self;
+	}
+	/* TB Type Loader */
+	function loadTBType(tbtypelist) {
+		var tbtypelist2 = [];
+		for (let atype of tbtypelist) {
+			tbtypelist2.push(new TBType(atype['id'], atype['tbtype'], atype['name']));
+		}
+		return tbtypelist2;
+	}
+
+
 	/* WHOGuidance Models */
 	function WHOGuidance(id, tbtype, name, yearPublished) {
 		var self = {};
@@ -523,6 +562,9 @@
 	/* View Model */
 	function ViewModel() {
 		var self = this;
+
+		self.tbtypedata = loadTBType(whotbtype);
+		self.tbtypes = ko.observableArray(self.tbtypedata);
 
 		self.whoguidancedata = loadWHOGuidance(whoguidances, whomedicinedoses);
 		self.whoguidances = ko.observableArray(self.whoguidancedata);
