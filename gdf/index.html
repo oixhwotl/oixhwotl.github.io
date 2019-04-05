@@ -5,63 +5,82 @@
 
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex"/>
 
 	<title>GDF Regimen Cost Calculator</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300" />
-	<link rel="stylesheet" href="../lib/bootstrap-4.3/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="../lib/fontawesome-5.7/css/all.css" />
+	<link rel="stylesheet" href="../lib/bootstrap-4.3/css/bootstrap.css"/>
+
+	<!-- 
+	<script data-search-pseudo-elements defer src="../lib/fontawesome-5.8/js/all.js"></script> 
+	-->
+
+	<link rel="stylesheet" href="../lib/fontawesome-5.8/css/solid.css"/>
+	<link rel="stylesheet" href="../lib/fontawesome-5.8/css/regular.css"/>
+	<link rel="stylesheet" href="../lib/fontawesome-5.8/css/brands.css"/>
+	<link rel="stylesheet" href="../lib/fontawesome-5.8/css/fontawesome.css"/>
+
 	<link rel="stylesheet" href="../lib/wow/css/animate.css" />
 	<!-- <link rel="stylesheet" href="../lib/site/css/style.css"/> -->
-	<link rel="stylesheet" href="../lib/DataTables/datatables.css" />
-	<link rel="stylesheet" href="../lib/site/css/media-queries.css" />
+	
+	<link rel="stylesheet" href="../lib/footable/css/footable.bootstrap.css" />
+
+	<!-- <link rel="stylesheet" href="../lib/site/css/media-queries.css" /> -->
 
 	<!-- Favicon and touch icons -->
 	<link rel="shortcut icon" href="../lib/site/ico/favicon.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144"
-		href="../lib/site/ico/apple-touch-icon-144-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114"
-		href="../lib/site/ico/apple-touch-icon-114-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../lib/site/ico/apple-touch-icon-72-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" href="../lib/site/ico/apple-touch-icon-57-precomposed.png" />
+
+	<style>
+	.mycon {
+		display: inline-block;
+		font-size: inherit;
+		font-family: "Font Awesome 5 Free";
+		font-style: normal;
+		font-weight: 400;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.mycon-loader:before {
+		font-family: "Font Awesome 5 Free";
+		font-style: normal;
+		font-weight: 400;
+		content: "\f01e";
+	}
+	</style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="navbar navbar-default container">
 	<div class="row">
 		<h2>Regimen cost calculator</h2>
 	</div>
 	<div class="row d-print-none">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 			<li class="nav-item">
-				<a class="nav-link active" data-toggle="tab" role="tab" href="#home">Home</a>
-			</li>
+				<a class="nav-link active" data-toggle="tab" role="tab" href="#home">Home</a></li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenCost">Regimen Cost</a>
-			</li>
+				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenCost">Regimen Cost</a></li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenEditor">Regimen Editor</a>
-			</li>
+				<a class="nav-link" data-toggle="tab" role="tab" href="#regimenEditor">Regimen Editor</a></li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" role="tab" href="#medicineGuidance">Medicines in Guidance</a>
-			</li>
+				<a class="nav-link" data-toggle="tab" role="tab" href="#medicineGuidance">Medicines in Guidance</a></li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" role="tab" href="#medicinePrice">Medicine Price</a>
-			</li>
+				<a class="nav-link" data-toggle="tab" role="tab" href="#medicinePrice">Medicine Price</a></li>
 		</ul>
 	</div>
-	<div class="row mb-2">
 	</div>
 </div>
 
-<div class="tab-content container" id="myTabContent">
+<div class="tab-content" id="myTabContent">
 
 	<!-- TAB HOME -->
-	<div id="home" class="tab-pane container fade show active" role="tabpanel">
+	<div id="home" class="tab-pane container fade in show active" role="tabpanel">
 		<!-- HOME: OVERVIEW -->
 		<div class="row d-flex">
 			<h3>Overview</h3>
@@ -167,14 +186,14 @@
 		<!-- HOME: TABLE OF REGIMENS -->
 		<div class="row">
 			<p>Show table of regimens</p>
-			<table id="homeTable" class="table table-bordered table-hover display">
-				<thead class="thead-dark">
+			<table id="homeTable" class="table table-hover">
+				<thead>
 					<tr>
 						<th scope="col" rowspan="2">Guidline<br />Year</th>
 						<th scope="col" rowspan="2">Name</th>
 						<th scope="col" rowspan="2">Composition</th>
 						<th scope="col" rowspan="2">Weight band (kg)</th>
-						<th scope="colgroup" colspan="3">Weighted price, USD</th>
+						<th scope="colgroup" colspan="3">Weighted price (USD)</th>
 					</tr>
 					<tr>
 						<th scope="col">2018</th>
@@ -184,7 +203,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td scope="row">2017</td>
+						<th scope="row">2017</th>
 						<td>Adult Drug-susceptible TB</td>
 						<td>2 RHZE(150/75/400/275) / 4 RH(150/75)</td>
 						<td>55-70 kg</td>
@@ -193,7 +212,7 @@
 						<td>13.5</td>
 					</tr>
 					<tr>
-						<td scope="row">2017</td>
+						<th scope="row">2017</th>
 						<td>Paediatric Drug-susceptible TB</td>
 						<td>2 RHZ(75/50/150) / 4 RH(75/50)</td>
 						<td>8-11 kg</td>
@@ -202,7 +221,7 @@
 						<td>5.5</td>
 					</tr>
 					<tr>
-						<td scope="row">2016</td>
+						<th scope="row">2016</th>
 						<td>MDR-TB Conventional</td>
 						<td>8 Z Km Lfx Eto Cs / 12 Z Lfx Eto Cs</td>
 						<td>46-55 kg</td>
@@ -211,7 +230,7 @@
 						<td>-4.6</td>
 					</tr>
 					<tr>
-						<td scope="row">2016</td>
+						<th scope="row">2016</th>
 						<td>MDR-TB STR</td>
 						<td>4 Km Cfz E H Mfx Pto Z / 5 Cfz E Mfx Z</td>
 						<td>30-50 kg</td>
@@ -228,38 +247,147 @@
 	</div>
 
 	<!-- TAB REGIMEN COST -->
-	<div id="regimenCost" class="tab-pane container fade" role="tabpanel">
+	<div id="regimenCost" class="tab-pane container fade in" role="tabpanel">
 		<h3>Regimen Cost in Detail</h3>
 		<p>show a regimen in detail</p>
 	</div>
 
 	<!-- TAB REGIMEN EDITOR -->
-	<div id="regimenEditor" class="tab-pane container fade" role="tabpanel">
+	<div id="regimenEditor" class="tab-pane container fade in" role="tabpanel">
 		<h3>Regimen Editor</h3>
 		<p>allow user to edit regimen</p>
 	</div>
 
 	<!-- TAB MEDICINES IN GUIDANCE -->
-	<div id="medicineGuidance" class="tab-pane container fade" role="tabpanel">
+	<div id="medicineGuidance" class="tab-pane container fade in" role="tabpanel">
 		<h3>Medicine and Dosage from Guidance</h3>
 		<p>Show medicine, strength and dosage per guidance</p>
+		<button type="button" data-page-size="10" data-table-id="guidanceTable">10</button>
+		<button type="button" data-page-size="20" data-table-id="guidanceTable">20</button>
+		<button type="button" data-page-size="50" data-table-id="guidanceTable">50</button>
+		<button type="button" data-page-size="100" data-table-id="guidanceTable">100</button>
+		<button type="button" data-page-size="200" data-table-id="guidanceTable">200</button>
+		<table id="guidanceTable" class="table table-hover" style="display: table;">
+			<thead>
+				<tr>
+					<th data-name="id" scope="col">ID</th>
+					<th data-name="gtbtype" scope="col">TB Type</th>
+					<th data-name="gname" scope="col">Guidance Name</th>
+					<th data-name="gyearPublished" scope="col">Year published</th>
+					<th data-name="name" scope="col">Medicine</th>
+					<th data-name="weightband" scope="col">Weightband (kg)</th>
+					<th data-name="dtype" scope="col">Dosage Type</th>
+					<th data-name="dailydose" scope="col">Daily dosage</th>
+					<th data-name="durationInMonth" scope="col">Duration in month</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: whoguidances">
+				<tr>
+					<th scope="row" data-bind="text: id"></th>
+					<th data-bind="text: gtbtype"></th>
+					<td data-bind="text: gname"></td>
+					<td data-bind="text: gyearPublished"></td>
+					<td data-bind="text: name"></td>
+					<td data-bind="text: weightband"></td>
+					<td data-bind="text: dtype"></td>
+					<td data-bind="text: dailydose"></td>
+					<td data-bind="text: durationInMonth"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="modal fade" id="editor-modal-guidance" tabindex="-1" role="dialog" aria-labelledby="editor-title">
+			<div class="modal-dialog" role="document">
+				<form class="modal-content form-horizontal" id="editor">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span></button>
+						<h4 class="modal-title" id="editor-g-title">Add Row</h4>
+					</div>
+					<div class="modal-body">
+						<input type="number" id="id" name="id" class="d-none hidden"/>
+						<div class="form-group required">
+							<label for="gtbtype" class="col-sm-3 control-label">TB Type</label>
+							<div class="col-sm-9">
+								<select id="gtbtype" class="form-control" name="gtbType" 
+									data-bind="options: tbtypes, optionsText: 'name', optionsValue: 'tbtype'"
+									placehoder="TB Type" required>
+								</select>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="gname" class="col-sm-3 control-label">Guidance Name</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" 
+									id="gname" name="gname" placeholder="WHO Guideline">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="yearPublished" class="col-sm-3 control-label">Published Year</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" 
+									id="yearPublished" name="yearPublished" placeholder="2019">
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="name" class="col-sm-3 control-label">Medicine</label>
+							<div class="col-sm-9">
+								<select id="name" class="form-control" name="name"
+									data-bind="options: mprices, optionsText: 'name', optionsValue: 'name'"
+									placeholder="Medicine Product Name" required>
+									</select>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="weightband" class="col-sm-3 control-label">Weightband (kg)</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="weightband" name="weightband" placeholder="56-70" required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="dtype" class="col-sm-3 control-label">Dosage Type</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="dtype" name="dtype" placeholder="std"/>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="dailydose" class="col-sm-3 control-label">Daily dosage</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="dailydose" name="dailydose" placeholder="1" required/>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label for="durationInMonth" class="col-sm-3 control-label">Duration in Month</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="durationInMonth" name="durationInMonth" placeholder="1" required/>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Save changes</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 
 	<!-- TAB MEDICINE PRICE -->
-	<div id="medicinePrice" class="tab-pane container fade" role="tabpanel">
+	<div id="medicinePrice" class="tab-pane container fade in" role="tabpanel">
 		<h3>Medicine Unit Price</h3>
 		<p>Showing the list of generic name, strength, and prices over years</p>
 		<strong>TODO: Update 2019 price</strong>
-		<div class="form d-none">
-			<div class="form-group">
-				<label>Name</label>
-				<input type="search" class="form-control" data-bind="textInput: nameQuery" autocomplete="off" />
-			</div>
-		</div>
-		<table id="medicinePriceTable" class="table table-bordered table-hover display">
-			<thead class="thead-dark">
+		<button type="button" data-page-size="10" data-table-id="medicinePriceTable">10</button>
+		<button type="button" data-page-size="20" data-table-id="medicinePriceTable">20</button>
+		<button type="button" data-page-size="50" data-table-id="medicinePriceTable">50</button>
+		<button type="button" data-page-size="100" data-table-id="medicinePriceTable">100</button>
+		<button type="button" data-page-size="200" data-table-id="medicinePriceTable">200</button>
+		<table id="medicinePriceTable" class="table table-hover">
+			<thead>
 				<tr>
+					<th scope="col">ID</th>
 					<th scope="col">Medicine</th>
+					<th scope="col">INN</th>
 					<th scope="col">Year</th>
 					<th scope="col">Low</th>
 					<th scope="col">High</th>
@@ -270,7 +398,9 @@
 			<tbody data-bind="foreach: mprices">
 				<!-- ko foreach: yprices -->
 				<tr>
-					<th scope="row" data-bind="text: $parent.name"></th>
+					<th scope="row" data-bind="text: $parent.id"></th>
+					<td data-bind="text: $parent.name"></th>
+					<th data-bind="text: $parent.inn"></th>
 					<td data-bind="text: year"></td>
 					<td data-bind="text: minprice"></td>
 					<td data-bind="text: maxprice"></td>
@@ -286,73 +416,209 @@
 
 <!-- Javascript -->
 <script src="../lib/jquery/jquery-3.3.1.js"></script>
+<script src="../lib/jquery/jquery-ui.min.js"></script>
 <script src="../lib/popper/popper.min.js"></script>
-<script src="../lib/bootstrap-4.3/js/bootstrap.min.js"></script>
-<script src="../lib/jquery.backstretch/jquery.backstretch.min.js"></script>
+<script src="../lib/bootstrap-4.3/js/bootstrap.js"></script>
 <script src="../lib/wow/js/wow.min.js"></script>
 <script src="../lib/retina/retina.min.js"></script>
 <script src="../lib/waypoints/lib/jquery.waypoints.min.js"></script>
 <script src="../lib/knockout/knockout-3.5.0.js"></script>
-<script src="../lib/DataTables/datatables.js"></script>
+<script src="../lib/moment/moment.js"></script>
+<script src="../lib/footable/js/footable.js"></script>
+
 <script src="../lib/site/js/scripts.js"></script>
+
+<!-- DATA START -->
 <script src="gdf_data.js"></script>
+<script src="who_data.js"></script>
+<!-- DATA END -->
 
 <script type="text/Javascript">
-	//console.log(gdfprice);
+	//console.log(gdfprices);
 	
-	/* Models */
-	function YearPrice(year, minprice, maxprice, avgprice, wgtprice) {
+	/* TB Type */
+	function TBType(id, tbtype, name) {
 		var self = {};
+
+		self.id = ko.observable(id);
+		self.tbtype = ko.observable(tbtype);
+		self.name = ko.observable(name);
+
+		return self;
+	}
+	/* TB Type Loader */
+	function loadTBType(tbtypelist) {
+		var tbtypelist2 = [];
+		for (let atype of tbtypelist) {
+			tbtypelist2.push(new TBType(atype['id'], atype['tbtype'], atype['name']));
+		}
+		return tbtypelist2;
+	}
+
+
+	/* WHOGuidance Models */
+	function WHOGuidance(id, tbtype, name, yearPublished) {
+		var self = {};
+
+		self.id = ko.observable(id);
+		self.tbtype = ko.observable(tbtype);
+		self.name = ko.observable(name);
+		self.yearPublished = ko.observable(yearPublished);
+
+		return self;
+	};
+
+	function WHOMedicineDose(id, gid, gtbtype, gname, gyearPublished, 
+		name, weightband, dtype, dailydose, durationInMonth) {
+		
+		var self = {};
+
+		self.id = ko.observable(id);
+		self.gid = ko.observable(gid);
+		self.gtbtype = ko.observable(gtbtype);
+		self.gname = ko.observable(gname);
+		self.gyearPublished = ko.observable(gyearPublished);
+		self.name = ko.observable(name);
+		self.weightband = ko.observable(weightband);
+		self.dtype = ko.observable(dtype);
+		self.dailydose = ko.observable(dailydose);
+		self.durationInMonth = ko.observable(durationInMonth);
+
+		return self;
+	};
+
+	/* WHOGuidance Loader */
+	function loadWHOGuidance(whoGuidanceList, whoMedicineDoseList) {
+		var whoglist = [];
+		var whoglist2 = [];
+		for (let guide of whoGuidanceList) {
+			//console.log(guide['name']);
+			whoglist.push(new WHOGuidance(guide['id'], 
+				guide['tbtype'], guide['name'], guide['yearPublished']));
+			whoglist2.push(guide['id']);
+		}
+
+		var whodoselist = [];
+		for (let dose of whoMedicineDoseList) {
+			//console.log(dose['gid']);
+			var ginfo = whoGuidanceList[whoglist2.indexOf(dose['gid'])];
+			//console.log(ginfo);
+			whodoselist.push(new WHOMedicineDose(
+				dose['id'], dose['gid'], 
+				ginfo['tbtype'], ginfo['name'], ginfo['yearPublished'],
+				dose['name'],
+				dose['weightband'], dose['dtype'], dose['dailydose'],
+				dose['durationInMonth']
+			));
+		}
+		return whodoselist;
+	};
+
+	/* Medicine Price Models */
+	function MedicineYearPrice(year, minprice, maxprice, avgprice, wgtprice) {
+		var self = {};
+
 		self.year = ko.observable(year);
 		self.minprice = ko.observable(parseFloat(minprice).toFixed(4));
 		self.maxprice = ko.observable(parseFloat(maxprice).toFixed(4));
 		self.avgprice = ko.observable(parseFloat(avgprice).toFixed(4));
 		self.wgtprice = ko.observable(parseFloat(wgtprice).toFixed(4));
-		return self;
-	}
 
-	function MedicinePrice(name, count, yprices) {
+		return self;
+	};
+
+	function MedicinePrice(id, name, inn, count, yprices) {
 		var self = {};
+
+		self.id = ko.observable(id);
 		self.name = ko.observable(name);
+		self.inn = ko.observable(inn);
 		self.rowspancount = ko.observable(count + 1);
 		self.yprices = ko.observableArray(yprices);
-		return self;
-	}
 
+		return self;
+	};
+
+	/* Medicine Price Loader */
 	function loadMedicinePrice(gdfpricelist) {
 		var mplist = [];
-		for (let mprice of gdfprice) {
+		for (let mprice of gdfpricelist) {
 			//console.log(mprice['name']);
 			var plist = [];
 			for (let p of mprice['prices']) {
 				//console.log(p);
-				plist.push(new YearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
+				plist.push(new MedicineYearPrice(p['year'], p['min'], p['max'], p['avg'], p['wgt']));
 				//console.log(plist);
 			}
 			//console.log(plist.length);
-			mplist.push(new MedicinePrice(mprice['name'], mprice['count'], plist));
+			mplist.push(new MedicinePrice(
+				mprice['id'], mprice['name'], mprice['inn'], 
+				mprice['count'], plist));
 			//console.log(mplist.length);
 		}
 		return mplist;
-	}
+	};
 
 	/* View Model */
-	function ViewModel1() {
+	function ViewModel() {
 		var self = this;
-		self.nameQuery = ko.observable("");
-		self.mpricedata = loadMedicinePrice(gdfprice);
+
+		self.tbtypedata = loadTBType(whotbtype);
+		self.tbtypes = ko.observableArray(self.tbtypedata);
+
+		self.whoguidancedata = loadWHOGuidance(whoguidances, whomedicinedoses);
+		self.whoguidances = ko.observableArray(self.whoguidancedata);
+
+		self.mpricedata = loadMedicinePrice(gdfprices);
 		self.mprices = ko.observableArray(self.mpricedata);
-		//console.log(mplist.length);
-		//console.log(self.mprices().length);
 	};
 
 	$(document).ready(function() {
-		$('#homeTable').DataTable();
+		var vm = new ViewModel();
+		ko.applyBindings(vm);
 
-		var vm1 = new ViewModel1();
+		$('#homeTable').footable();
+		$('#guidanceTable').footable({
+			"paging": {
+				"enabled":true,
+				"container": "#paging-ui-container",
+				"countFormat": "{CP} of {TP}",
+				"size": 10
+			},
+			"sorting": {
+				"enabled": true
+			},
+			"filtering": {
+				"enabled": true,
+				"connectors": false
+			}
+		});
+		$('#medicinePriceTable').footable({
+			"paging": {
+				"enabled":true,
+				"size": 10
+			},
+			"sorting": {
+				"enabled": true
+			},
+			"filtering": {
+				"enabled": true,
+				"connectors": false
+			}
+		});
 
-		ko.applyBindings(vm1);
-		$('#medicinePriceTable').DataTable();
+		$('[data-page-size]').on('click', function(e){
+			e.preventDefault();
+
+			var newSize = $(this).data('pageSize');
+			var tableId = $(this).data('tableId'); 
+			
+			console.log(tableId);
+			console.log($(document).find('#' + tableId));
+		
+			FooTable.get( $(document).find('#' + tableId) ).pageSize(newSize);
+		});
+
 		console.log("ready called");
 	});
 </script>
