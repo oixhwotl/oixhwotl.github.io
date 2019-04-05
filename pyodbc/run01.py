@@ -16,6 +16,9 @@ gname_js_file = 'gname.js'
 data_js_file = '../gdf/gdf_data.js'
 data_json_file = '../gdf/gdf_data.json'
 
+data_sql_file = '../gdf/gdf_data.sql'
+
+
 sql_select0 = """
 with
 OPVIEW(OYear, oid, pid, psid, Price, PackSize, UnitPrice, quantity) as (
@@ -223,7 +226,7 @@ def conn_and_save():
 	except Exception as e:
 		sys.exit(1)
 
-conn_and_save()
+#conn_and_save()
 
 dfw = pd.read_csv(wprice_csv_file)
 dfw[csvheader0[0]].astype('int')
@@ -273,7 +276,7 @@ for gname in gnames:
 		prod3['pid'] = pid
 		prod3['pcode'] = pnames[ind]
 		prod3['inn'] = pinncodes[ind]
-		prod3['desc'] = pdescriptions[ind]
+		prod3['desc'] = pdescriptions[ind].replace('\n', ' ').replace('\r', '')
 		prod3['concentration'] = pconcentrations[ind]
 		prod2.append(prod3)
 		prod2count += 1
@@ -327,6 +330,31 @@ for gname in gnames:
 
 	gid += 1
 
+with open(data_sql_file, 'wt') as fp:
+	
+	STMT_INSERT = "INSERT INTO "
+	STMT_VALUES = " VALUES ( \""
+	STMT_COMMA = "\" , \""
+	# create medicine table
+	fp.write("CREATE TABLE MED (ID INTEGER PRIMARY KEY, NAME VARCHAR(128), INN VARCHAR(128));\n")
+	
+	# create product table
+	fp.write("CREATE TABLE PROD (PID INTEGER PRIMARY KEY, MED_ID INTEGER REFERENCES MED(ID), PCODE VARCHAR(128), INN VARCHAR(128), CONCENTRATION VARCHAR(128), DESCRIPTION VARCHAR(256));\n")
+
+	for ind, prod1 in enumerate(prod):
+		fp.write(STMT_INSERT + " MED " + STMT_VALUES + str(prod1['id']) + STMT_COMMA + prod1['name'].strip() + STMT_COMMA + prod1['inn'].strip() + "\" ); \n")
+		for ind2, prod2 in enumerate(prod1['prod']):
+			fp.write(STMT_INSERT + " PROD " + STMT_VALUES + str(prod2['pid']) + STMT_COMMA + str(prod1['id']) + STMT_COMMA + prod2['pcode'].strip() + STMT_COMMA + prod2['inn'].strip() + STMT_COMMA + prod2['concentration'].strip() + STMT_COMMA + prod2['desc'].strip() + "\" ); \n")
+			
+	# create price table
+	fp.write("CREATE TABLE PRICE (ID INTEGER PRIMARY KEY AUTOINCREMENT, MED_ID INTEGER REFERENCES MED(ID), YEAR INT, PMIN DOUBLE PRECISION, PMAX DOUBLE PRECISION, PAVG DOUBLE PRECISION, PWGT DOUBLE PRECISION );\n")			
+	for ind, price1 in enumerate(price):
+		for ind2, price2 in enumerate(price1['prices']):
+			fp.write(STMT_INSERT + " PRICE (MED_ID, YEAR, PMIN, PMAX, PAVG, PWGT) " + STMT_VALUES +  
+				str(price1['id']) + STMT_COMMA + str(price2['year']) + STMT_COMMA + str(price2['min']) + STMT_COMMA + str(price2['max']) + STMT_COMMA + str(price2['avg']) + STMT_COMMA + str(price2['wgt']) + "\" );\n")
+
+	
+"""
 with open(data_js_file, 'wt') as fp:
 	fp.write("var gname = ")
 	json.dump(prod, fp)
@@ -342,4 +370,4 @@ with open(data_json_file, 'wt') as fp:
 	fp.write(", \"price\":")
 	fp.write(json.dumps(price, indent=5, sort_keys=True))
 	fp.write("}")
-
+"""
