@@ -336,18 +336,21 @@ with open(data_sql_file, 'wt') as fp:
 	STMT_VALUES = " VALUES ( \""
 	STMT_COMMA = "\" , \""
 	# create medicine table
+	fp.write("DROP TABLE IF EXISTS MED;\n")
 	fp.write("CREATE TABLE MED (ID INTEGER PRIMARY KEY, NAME VARCHAR(128), INN VARCHAR(128));\n")
 	
 	# create product table
+	fp.write("DROP TABLE IF EXISTS PROD;\n")
 	fp.write("CREATE TABLE PROD (PID INTEGER PRIMARY KEY, MED_ID INTEGER REFERENCES MED(ID), PCODE VARCHAR(128), INN VARCHAR(128), CONCENTRATION VARCHAR(128), DESCRIPTION VARCHAR(256));\n")
 
 	for ind, prod1 in enumerate(prod):
-		fp.write(STMT_INSERT + " MED " + STMT_VALUES + str(prod1['id']) + STMT_COMMA + prod1['name'].strip() + STMT_COMMA + prod1['inn'].strip() + "\" ); \n")
+		fp.write(STMT_INSERT + " MED (ID, NAME, INN) " + STMT_VALUES + str(prod1['id']) + STMT_COMMA + prod1['name'].strip() + STMT_COMMA + prod1['inn'].strip() + "\" ); \n")
 		for ind2, prod2 in enumerate(prod1['prod']):
 			fp.write(STMT_INSERT + " PROD " + STMT_VALUES + str(prod2['pid']) + STMT_COMMA + str(prod1['id']) + STMT_COMMA + prod2['pcode'].strip() + STMT_COMMA + prod2['inn'].strip() + STMT_COMMA + prod2['concentration'].strip() + STMT_COMMA + prod2['desc'].strip() + "\" ); \n")
 			
 	# create price table
-	fp.write("CREATE TABLE PRICE (ID INTEGER PRIMARY KEY AUTOINCREMENT, MED_ID INTEGER REFERENCES MED(ID), YEAR INT, PMIN DOUBLE PRECISION, PMAX DOUBLE PRECISION, PAVG DOUBLE PRECISION, PWGT DOUBLE PRECISION );\n")			
+	fp.write("DROP TABLE IF EXISTS PRICE;\n")
+	fp.write("CREATE TABLE PRICE (ID SERIAL PRIMARY KEY, MED_ID INTEGER REFERENCES MED(ID), YEAR INT, PMIN DOUBLE PRECISION, PMAX DOUBLE PRECISION, PAVG DOUBLE PRECISION, PWGT DOUBLE PRECISION );\n")			
 	for ind, price1 in enumerate(price):
 		for ind2, price2 in enumerate(price1['prices']):
 			fp.write(STMT_INSERT + " PRICE (MED_ID, YEAR, PMIN, PMAX, PAVG, PWGT) " + STMT_VALUES +  
