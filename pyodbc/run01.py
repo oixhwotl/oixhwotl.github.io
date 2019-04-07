@@ -17,6 +17,9 @@ data_js_file = '../gdf/gdf_data.js'
 data_json_file = '../gdf/gdf_data.json'
 
 data_sql_file = '../gdf/gdf_data.sql'
+data_sql1_file = '../gdf/gdf_data1.sql'
+data_sql2_file = '../gdf/gdf_data2.sql'
+data_sql3_file = '../gdf/gdf_data3.sql'
 
 
 sql_select0 = """
@@ -331,31 +334,50 @@ for gname in gnames:
 	gid += 1
 
 with open(data_sql_file, 'wt') as fp:
-	
+	fp1 = open(data_sql1_file, 'wt')
+	fp2 = open(data_sql2_file, 'wt')
+	fp3 = open(data_sql3_file, 'wt')
 	STMT_INSERT = "INSERT INTO "
-	STMT_VALUES = " VALUES ( \""
-	STMT_COMMA = "\" , \""
+	STMT_VALUES = " VALUES ( \'"
+	STMT_COMMA = "\' , \'"
+	STMT_END = "\' ); \n"
+	
 	# create medicine table
 	fp.write("DROP TABLE IF EXISTS MED;\n")
 	fp.write("CREATE TABLE MED (ID INTEGER PRIMARY KEY, NAME VARCHAR(128), INN VARCHAR(128));\n")
 	
+	fp1.write("DROP TABLE IF EXISTS MED;\n")
+	fp1.write("CREATE TABLE MED (ID INTEGER PRIMARY KEY, NAME VARCHAR(128), INN VARCHAR(128));\n")
+	
 	# create product table
 	fp.write("DROP TABLE IF EXISTS PROD;\n")
 	fp.write("CREATE TABLE PROD (PID INTEGER PRIMARY KEY, MED_ID INTEGER REFERENCES MED(ID), PCODE VARCHAR(128), INN VARCHAR(128), CONCENTRATION VARCHAR(128), DESCRIPTION VARCHAR(256));\n")
+	
+	fp2.write("DROP TABLE IF EXISTS PROD;\n")
+	fp2.write("CREATE TABLE PROD (PID INTEGER PRIMARY KEY, MED_ID INTEGER REFERENCES MED(ID), PCODE VARCHAR(128), INN VARCHAR(128), CONCENTRATION VARCHAR(128), DESCRIPTION VARCHAR(256));\n")
 
 	for ind, prod1 in enumerate(prod):
-		fp.write(STMT_INSERT + " MED (ID, NAME, INN) " + STMT_VALUES + str(prod1['id']) + STMT_COMMA + prod1['name'].strip() + STMT_COMMA + prod1['inn'].strip() + "\" ); \n")
+		fp.write(STMT_INSERT + " MED (ID, NAME, INN) " + STMT_VALUES + str(prod1['id']) + STMT_COMMA + prod1['name'].strip() + STMT_COMMA + prod1['inn'].strip() + STMT_END)
+		fp1.write(STMT_INSERT + " MED (ID, NAME, INN) " + STMT_VALUES + str(prod1['id']) + STMT_COMMA + prod1['name'].strip() + STMT_COMMA + prod1['inn'].strip() + STMT_END)
 		for ind2, prod2 in enumerate(prod1['prod']):
-			fp.write(STMT_INSERT + " PROD " + STMT_VALUES + str(prod2['pid']) + STMT_COMMA + str(prod1['id']) + STMT_COMMA + prod2['pcode'].strip() + STMT_COMMA + prod2['inn'].strip() + STMT_COMMA + prod2['concentration'].strip() + STMT_COMMA + prod2['desc'].strip() + "\" ); \n")
+			fp.write(STMT_INSERT + " PROD " + STMT_VALUES + str(prod2['pid']) + STMT_COMMA + str(prod1['id']) + STMT_COMMA + prod2['pcode'].strip() + STMT_COMMA + prod2['inn'].strip() + STMT_COMMA + prod2['concentration'].strip() + STMT_COMMA + prod2['desc'].strip() + STMT_END)
+			fp2.write(STMT_INSERT + " PROD " + STMT_VALUES + str(prod2['pid']) + STMT_COMMA + str(prod1['id']) + STMT_COMMA + prod2['pcode'].strip() + STMT_COMMA + prod2['inn'].strip() + STMT_COMMA + prod2['concentration'].strip() + STMT_COMMA + prod2['desc'].strip() + STMT_END)
 			
 	# create price table
 	fp.write("DROP TABLE IF EXISTS PRICE;\n")
 	fp.write("CREATE TABLE PRICE (ID SERIAL PRIMARY KEY, MED_ID INTEGER REFERENCES MED(ID), YEAR INT, PMIN DOUBLE PRECISION, PMAX DOUBLE PRECISION, PAVG DOUBLE PRECISION, PWGT DOUBLE PRECISION );\n")			
+	fp3.write("DROP TABLE IF EXISTS PRICE;\n")
+	fp3.write("CREATE TABLE PRICE (ID SERIAL PRIMARY KEY, MED_ID INTEGER REFERENCES MED(ID), YEAR INT, PMIN DOUBLE PRECISION, PMAX DOUBLE PRECISION, PAVG DOUBLE PRECISION, PWGT DOUBLE PRECISION );\n")			
 	for ind, price1 in enumerate(price):
 		for ind2, price2 in enumerate(price1['prices']):
 			fp.write(STMT_INSERT + " PRICE (MED_ID, YEAR, PMIN, PMAX, PAVG, PWGT) " + STMT_VALUES +  
-				str(price1['id']) + STMT_COMMA + str(price2['year']) + STMT_COMMA + str(price2['min']) + STMT_COMMA + str(price2['max']) + STMT_COMMA + str(price2['avg']) + STMT_COMMA + str(price2['wgt']) + "\" );\n")
+				str(price1['id']) + STMT_COMMA + str(price2['year']) + STMT_COMMA + str(price2['min']) + STMT_COMMA + str(price2['max']) + STMT_COMMA + str(price2['avg']) + STMT_COMMA + str(price2['wgt']) + STMT_END)
+			fp3.write(STMT_INSERT + " PRICE (MED_ID, YEAR, PMIN, PMAX, PAVG, PWGT) " + STMT_VALUES +  
+				str(price1['id']) + STMT_COMMA + str(price2['year']) + STMT_COMMA + str(price2['min']) + STMT_COMMA + str(price2['max']) + STMT_COMMA + str(price2['avg']) + STMT_COMMA + str(price2['wgt']) + STMT_END)
 
+	fp1.close()
+	fp2.close()
+	fp3.close()
 	
 """
 with open(data_js_file, 'wt') as fp:

@@ -145,11 +145,11 @@ var regimens = [
 
 
 var whomedicinedoses = [
-{"id":"1", "gid":"8", "name":"Lfx-250", "weightband":"30-35", "dtype":"std", "dailydose":"3", "durationInMonth":""},
-{"id":"2", "gid":"8", "name":"Lfx-250", "weightband":"36-45", "dtype":"std", "dailydose":"3", "durationInMonth":""},
-{"id":"3", "gid":"8", "name":"Lfx-250", "weightband":"46-55", "dtype":"std", "dailydose":"4", "durationInMonth":""},
-{"id":"4", "gid":"8", "name":"Lfx-250", "weightband":"56-70", "dtype":"std", "dailydose":"4", "durationInMonth":""},
-{"id":"5", "gid":"8", "name":"Lfx-250", "weightband":"71-", "dtype":"std", "dailydose":"4", "durationInMonth":""},
+{"id":"1", "gid":"8", "name":"Lfx-250", "weightband":"30-35", "dtype":"std", "dailydose":"3", "durationInMonth":"20"},
+{"id":"2", "gid":"8", "name":"Lfx-250", "weightband":"36-45", "dtype":"std", "dailydose":"3", "durationInMonth":"20"},
+{"id":"3", "gid":"8", "name":"Lfx-250", "weightband":"46-55", "dtype":"std", "dailydose":"4", "durationInMonth":"20"},
+{"id":"4", "gid":"8", "name":"Lfx-250", "weightband":"56-70", "dtype":"std", "dailydose":"4", "durationInMonth":"20"},
+{"id":"5", "gid":"8", "name":"Lfx-250", "weightband":"71-", "dtype":"std", "dailydose":"4", "durationInMonth":"20"},
 
 {"id":"6", "gid":"8", "name":"Lfx-500", "weightband":"30-35", "dtype":"std", "dailydose":"1.5", "durationInMonth":""},
 {"id":"7", "gid":"8", "name":"Lfx-500", "weightband":"36-45", "dtype":"std", "dailydose":"1.5", "durationInMonth":""},
