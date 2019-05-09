@@ -10,6 +10,7 @@
 // @include      https://www.tfreeca*/*
 // @include      https://www.globaljobs.co.kr/*
 // @include      https://blog.naver.com/*
+// @include      https://www.tutorialspoint.com/*
 // @exclude      https://outlook.office365*
 // @grant        none
 // ==/UserScript==
@@ -53,13 +54,16 @@ function tamperMonkeyWrap()
         // NAVER BLOG
         var naverblog_ids = ["floating_area_header"];
 
+        // TUTORIALPOINT
+        var tutorialpoint_classes = ["simple-ad", "rightgooglead"];
+        var tutorialpoint_ids = ["aswift_0_anchor"];
 
         // Now hide them
         var classList = outlook_classes.concat(manamoa_classes).concat(tcafe_classes)
-        .concat(globaljobs_classes).concat(tfreeca_classes);
+        .concat(globaljobs_classes).concat(tfreeca_classes).concat(tutorialpoint_classes);
 
         var idList = [];
-        idList = idList.concat(tcafe_ids).concat(tfreeca_ids).concat(naverblog_ids);
+        idList = idList.concat(tcafe_ids).concat(tfreeca_ids).concat(naverblog_ids).concat(tutorialpoint_ids);
 
         var i, j;
         var eList, eElm;
