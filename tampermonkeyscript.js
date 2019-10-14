@@ -22,8 +22,9 @@ function tamperMonkeyWrap()
 
         // OUTLOOK
         var outlook_premium_bar = '_1ZEdP0-JdMOVtjBb5ZcM6M'; // On bottom left
-        var outlook_adblocking = '_1_ag99JsBHxI6S4FP5ayPv'; // On right hand side
-        var outlook_classes = [outlook_premium_bar, outlook_adblocking];
+        var outlook_adblocking1 = '_1_ag99JsBHxI6S4FP5ayPv'; // On right hand side
+        var outlook_adblocking2 = '_3_hHr3kfEhbNYRFM5YJxH9';
+        var outlook_classes = [outlook_premium_bar, outlook_adblocking1, outlook_adblocking2];
 
         // MANAMOA
         var manamoa_addBannerWidget = "ad-banner-widget";
